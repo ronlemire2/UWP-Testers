@@ -1,0 +1,63 @@
+﻿<Page x:Name="SharedBrushWithBinding"
+    x:Class="Ch02_XamlSyntax.Views.SharedBrushWithBindingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch02_XamlSyntax.Views"
+    RequestedTheme="Dark"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <x:String x:Key="appName">Shared Brush with Binding</x:String>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontFamily" Value="Times New Roman" />
+        </Style>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Text="{StaticResource appName}"
+                   FontFamily="Portable User Interface"
+                   FontSize="24"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+
+        <!-- defines foreground brush -->
+        <TextBlock x:Name="leftTextBlock"
+                    Text="Left Text"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center">
+            <TextBlock.Foreground>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0" Color="SlateGray" />
+                    <GradientStop Offset="1" Color="White"  />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <!-- bind foreground and x:Null Style -->
+        <TextBlock Text="Top Text"
+                   Style="{x:Null}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Foreground="{Binding ElementName=leftTextBlock, Path=Foreground}" />
+
+        <!-- bind foreground and text to FontFamily -->
+        <TextBlock Text="{Binding ElementName=leftTextBlock, Path=FontFamily.Source}"
+                   FontSize="16"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Foreground="{Binding ElementName=leftTextBlock, Path=Foreground}" />
+        
+        <!-- bind foreground and text with RelativeSource Self-->
+        <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=FontSize}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom">
+            <TextBlock.Foreground>
+                <Binding ElementName="leftTextBlock" Path="Foreground" />
+            </TextBlock.Foreground>
+        </TextBlock>
+    </Grid>
+</Page>

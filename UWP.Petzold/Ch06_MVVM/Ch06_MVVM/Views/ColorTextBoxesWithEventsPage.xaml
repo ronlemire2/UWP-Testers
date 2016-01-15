@@ -1,0 +1,71 @@
+﻿<Page x:Name="ColorTextBoxesWithEvents"
+    x:Class="Ch06_MVVM.Views.ColorTextBoxesWithEventsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch06_MVVM.Views"
+    xmlns:viewmodels="using:Ch06_MVVM.ViewModels"
+    xmlns:converters="using:Ch06_MVVM.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="Margin" Value="24 0 0 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="24 48 24 48" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Red" Grid.Row="0" Grid.Column="0" />
+            <TextBox x:Name="redTextBox" 
+                     Grid.Row="0" 
+                     Grid.Column="1" 
+                     Text="0"
+                     TextChanged="OnTextBoxTextChanged"/>
+
+            <TextBlock Text="Green" Grid.Row="1" Grid.Column="0" />
+            <TextBox x:Name="greenTextBox"
+                     Grid.Row="1" 
+                     Grid.Column="1" 
+                     Text="0"
+                     TextChanged="OnTextBoxTextChanged"/>
+
+            <TextBlock Text="Blue" Grid.Row="2" Grid.Column="0" />
+            <TextBox x:Name="blueTextBox" 
+                     Grid.Row="2" 
+                     Grid.Column="1"
+                     Text="0"
+                     TextChanged="OnTextBoxTextChanged"/>
+        </Grid>
+
+        <!-- Result -->
+        <Rectangle Grid.Column="1">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding Color}" />
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </Grid>
+</Page>

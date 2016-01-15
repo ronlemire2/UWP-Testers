@@ -1,0 +1,74 @@
+﻿<Page x:Name="rjlTextFormattingCommandBar"
+    x:Class="Ch08_AppBarsAndPopups.Views.rjlTextFormattingCommandBarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch08_AppBarsAndPopups.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <CommandBar x:Name="topbar" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
+            <!-- 
+            StandardStyles.xaml changes. 
+            1) To make the Circles fit on the CommandBar I changed line 260.
+                From: <StackPanel VerticalAlignment="Top" Margin="0,12,0,11">
+                To: <StackPanel VerticalAlignment="Top" Margin="0,5,0,11">
+            2) Commented out lines 384-386 as stated in the book on page 283.
+                BackgroundCheckedGlyph animation was causing an exception.
+            -->
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Style="{StaticResource BoldAppBarButtonStyle}"
+                          Checked="OnBoldAppBarCheckBoxChecked"
+                          Unchecked="OnBoldAppBarCheckBoxChecked" />
+
+                    <CheckBox Style="{StaticResource ItalicAppBarButtonStyle}"
+                          Checked="OnItalicAppBarCheckBoxChecked"
+                          Unchecked="OnItalicAppBarCheckBoxChecked" />
+
+                    <CheckBox Style="{StaticResource UnderlineAppBarButtonStyle}"
+                          Checked="OnUnderlineAppBarCheckBoxChecked"
+                          Unchecked="OnUnderlineAppBarCheckBoxChecked" />
+
+                    <Polyline Points="0 12, 0 48"
+                          Stroke="{StaticResource ApplicationForegroundThemeBrush}"
+                          VerticalAlignment="Top" />
+
+                    <RadioButton x:Name="redRadioButton"
+                             Style="{StaticResource FontColorAppBarButtonStyle}"
+                             Foreground="Red"
+                             AutomationProperties.Name="Red"
+                             Checked="OnFontColorAppBarRadioButtonChecked" />
+
+                    <RadioButton x:Name="greenRadioButton"
+                             Style="{StaticResource FontColorAppBarButtonStyle}"
+                             Foreground="Green"
+                             AutomationProperties.Name="Green"
+                             Checked="OnFontColorAppBarRadioButtonChecked" />
+
+                    <RadioButton x:Name="blueRadioButton"
+                             Style="{StaticResource FontColorAppBarButtonStyle}"
+                             Foreground="Blue"
+                             AutomationProperties.Name="Blue"
+                             Checked="OnFontColorAppBarRadioButtonChecked" />
+                </StackPanel>
+            </CommandBar.Content>
+        </CommandBar>
+
+        <Grid Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True">
+            <TextBlock x:Name="txtblk"
+                   FontFamily="Times New Roman"
+                   FontSize="48"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Run>Text Formatting CommandBar</Run>
+            </TextBlock>
+        </Grid>
+
+    </Grid>
+</Page>

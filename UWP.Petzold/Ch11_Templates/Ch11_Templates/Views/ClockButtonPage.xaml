@@ -1,0 +1,64 @@
+﻿<Page x:Name="ClockButton"
+    x:Class="Ch11_Templates.Views.ClockButtonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch11_Templates.Views"
+    xmlns:viewmodels="using:Ch11_Templates.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    RequestedTheme="Dark"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <!-- 
+            Set Button Content property to instance of viewmodels:Clock which implements PropertyChanged events. 
+            This also sets the Button's DataContext to the instance which allows {Binding...} to work.
+            When CompositionTarget.Rendering fires, it gets new DateTime.Now and updates Clock properties which are bound to Polylines. 
+            -->
+            <viewmodels:Clock IsEnabled="True" />
+
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="144" Height="144">
+                        <Grid.Resources>
+                            <Style TargetType="Polyline">
+                                <Setter Property="Stroke"
+                                        Value="{StaticResource ApplicationForegroundThemeBrush}" />
+                            </Style>
+                        </Grid.Resources>
+
+                        <Polyline Points="72 80, 72 24"
+                                  StrokeThickness="6">
+                            <Polyline.RenderTransform>
+                                <RotateTransform Angle="{Binding HourAngle}"
+                                                 CenterX="72"
+                                                 CenterY="72" />
+                            </Polyline.RenderTransform>
+                        </Polyline>
+
+                        <Polyline Points="72 88, 72 12"
+                                  StrokeThickness="3">
+                            <Polyline.RenderTransform>
+                                <RotateTransform Angle="{Binding MinuteAngle}"
+                                                 CenterX="72"
+                                                 CenterY="72" />
+                            </Polyline.RenderTransform>
+                        </Polyline>
+
+                        <Polyline Points="72 88, 72 6"
+                                  StrokeThickness="1">
+                            <Polyline.RenderTransform>
+                                <RotateTransform Angle="{Binding SecondAngle}"
+                                                 CenterX="72"
+                                                 CenterY="72" />
+                            </Polyline.RenderTransform>
+                        </Polyline>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+    </Grid>
+</Page>

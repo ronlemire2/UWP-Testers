@@ -1,0 +1,40 @@
+﻿<Page x:Name="RoutedEvents5"
+    x:Class="Ch03_BasicEventHandling.Views.RoutedEvents5Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch03_BasicEventHandling.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          FontSize="24"
+    mc:Ignorable="d">
+
+    <Grid x:Name="contentGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+            <TextBlock FontSize="14" Text="{Binding rgb0}" Margin="0,0,15,0"/>
+            <TextBlock FontSize="14" Text="{Binding rgb1}" Margin="0,0,15,0" />
+            <TextBlock FontSize="14" Text="{Binding rgb2}" Margin="0,0,15,0" />
+        </StackPanel>
+        <TextBlock Text="Center / Center"
+                   HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                   Tapped="OnTextBlockTapped" />
+        <TextBlock Text="Center / Top"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Tapped="OnTextBlockTapped" />
+        <TextBlock Text="Right / Center"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Tapped="OnTextBlockTapped" />
+        <TextBlock Text="Center / Bottom"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Tapped="OnTextBlockTapped" />
+        <TextBlock Text="Left / Center"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Tapped="OnTextBlockTapped" />
+    </Grid>
+</Page>

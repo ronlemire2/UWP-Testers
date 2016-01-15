@@ -1,0 +1,83 @@
+﻿<Page x:Name="ListBoxWithUniformGrid"
+    x:Class="Ch11_Templates.Views.ListBoxWithUniformGridPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch11_Templates.Views"
+    xmlns:controls="using:Ch11_Templates.Controls"
+    xmlns:viewmodels="using:Ch11_Templates.ViewModels"
+    xmlns:converters="using:Ch11_Templates.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <viewmodels:NamedColor x:Key="namedColor" />
+        <converters:ColorToContrastColorConverter x:Key="colorConverter" />
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListBox ItemsSource="{Binding Source={StaticResource namedColor}, Path=All}"
+                 ScrollViewer.HorizontalScrollMode="Enabled"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 ScrollViewer.VerticalScrollMode="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
+                            Width="288"
+                            Height="72"
+                            BorderThickness="3"
+                            Margin="3">
+                        <Border.Background>
+                            <SolidColorBrush Color="{Binding Color}" />
+                        </Border.Background>
+                        <TextBlock Text="{Binding Name}"
+                                   FontSize="24"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{Binding Color, Converter={StaticResource colorConverter}}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <controls:UniformGrid Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>
+
+<!--<ListBox ItemsSource="{Binding Source={StaticResource namedColor}, Path=All}">
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <Border BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
+                            Width="288"
+                            Height="72"
+                            BorderThickness="3"
+                            Margin="3">
+                <Border.Background>
+                    <SolidColorBrush Color="{Binding Color}" />
+                </Border.Background>
+                <TextBlock Text="{Binding Name}"
+                                   FontSize="24"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{Binding Color, Converter={StaticResource colorConverter}}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Border>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+
+    <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+            <controls:UniformGrid />
+        </ItemsPanelTemplate>
+    </ListBox.ItemsPanel>
+</ListBox>-->

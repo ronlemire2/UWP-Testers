@@ -1,0 +1,27 @@
+﻿<Page x:Name="HelloLocalImage"
+    x:Class="Ch01_MarkupAndCode.Views.HelloLocalImagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch01_MarkupAndCode.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Image x:Name="imgHello"
+               Source="/Assets/Hello.png"
+               Stretch="None" />
+        
+        <!-- Image type could be BMP, JPEG, PNG, GIF -->
+        <!-- 
+        Check that Build Action is Content.
+        Content: Allows you to retrieve a file (in same dir as assembly) as a stream via Application.GetContentStream( uri ). For this method to work, it needs a AssemblyAssociatedContentFile custom attribute which VS graciously adds when you mark a file as "Content"
+        None: The file is not included in the project output group and is not compiled in the build process. An example is a text file that contains documentation, such as a Readme file.
+        Compile: The file is compiled into the build output. This setting is used for code files.
+        Embedded resource: embeds the file in an exclusive assembly manifest resource.
+        Page: Used to compile a xaml file into baml. The baml is then embedded with the same technique as Resource (i.e. available as `AppName.g.resources)
+        ApplicationDefinition: Mark the XAML/class file that defines your application. You specify the code-behind with the x:Class="Namespace.ClassName" and set the startup form/page with StartupUri="Window1.xaml"
+        CodeAnalysisDictionary: A xml file containing custom word dictionary for spelling rules
+        -->
+    </Grid>
+</Page>

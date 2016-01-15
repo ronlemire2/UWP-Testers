@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Ch01_MarkupAndCode.Views.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch01_MarkupAndCode.Views"
+    xmlns:controls="using:Ch01_MarkupAndCode.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader x:Name="pageHeader">
+            <controls:PageHeader.HeaderContent>
+                <TextBlock x:Name="title" Style="{ThemeResource PageTitleTextBlockStyle}" Text="CHAPTER SAMPLES"/>
+            </controls:PageHeader.HeaderContent>
+        </controls:PageHeader>
+
+        <ScrollViewer Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True" Margin="12,4,0,0">
+            <StackPanel >
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Hello - </TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloAudio -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloCode -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloImage -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloImageCode -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloLocalImage -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloLocalImageCode -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">HelloVideo -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">InternationalHelloWorld -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">OverlappedStackedText -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">WrappedText -</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

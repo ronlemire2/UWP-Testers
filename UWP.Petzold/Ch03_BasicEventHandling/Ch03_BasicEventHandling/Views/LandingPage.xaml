@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="Ch03_BasicEventHandling.Views.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch03_BasicEventHandling.Views"
+    xmlns:controls="using:Ch03_BasicEventHandling.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader x:Name="pageHeader">
+            <controls:PageHeader.HeaderContent>
+                <TextBlock x:Name="title" Style="{ThemeResource PageTitleTextBlockStyle}" Text="CHAPTER SAMPLES"/>
+            </controls:PageHeader.HeaderContent>
+        </controls:PageHeader>
+
+        <ScrollViewer Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True" Margin="12,4,0,0">
+            <StackPanel >
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">DigitalClock -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ExpandingText -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ManualBrushAnimation -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ManualColorAnimation (todo)-</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RainbowEight -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents0 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents1 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents2 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents3 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents4 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents5 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents6 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">RoutedEvents7 -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ScalableInternatiionalHelloWorld -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">TapTextBlock -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">WhatSize -</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="Ch05_ControlInteraction.Views.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch05_ControlInteraction.Views"
+    xmlns:controls="using:Ch05_ControlInteraction.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader x:Name="pageHeader">
+            <controls:PageHeader.HeaderContent>
+                <TextBlock x:Name="title" Style="{ThemeResource PageTitleTextBlockStyle}" Text="CHAPTER SAMPLES"/>
+            </controls:PageHeader.HeaderContent>
+        </controls:PageHeader>
+
+        <ScrollViewer Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True" Margin="12,4,0,0">
+            <StackPanel >
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">AlphabetBlocks -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ButtonVarieties -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ColorScrollWithValueConverter -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">DependencyProperties -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">DependencyPropertiesWithBindings -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">LineCapsAndJoins -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">LineCapsAndJoinsWithCustomClass -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">OrientableColorScroll -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">SimpleColorScroll -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">SimpleKeyPad -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">SliderBindings -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">SliderEvents -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">SliderSketch -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">TextBoxInputScopes -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">rjlColorScrollWithValueConverter - uses ViewModel and AdaptiveTrigger</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">rjlOrientableColorScroll - uses AdaptiveTrigger</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

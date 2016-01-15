@@ -1,0 +1,45 @@
+﻿<Application
+    x:Class="Ch12_PagesAndNavigation.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch12_PagesAndNavigation"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/Styles.xaml"/>
+                <ResourceDictionary Source="Common/StandardStyles.xaml" />
+                <ResourceDictionary>
+                    <x:String x:Key="AppName">Ch12_PagesAndNavigation</x:String>
+                    <!-- listViewItemTemplate -->
+                    <DataTemplate x:Key="listViewItemTemplate">
+                        <StackPanel Width="320" Margin="10">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" Style="{StaticResource ItemTextStyle}"
+                       Margin="2,0,0,0"/>
+                                <TextBlock Text="{Binding DueDate}" Style="{StaticResource BodyTextStyle}" TextWrapping="NoWrap"
+                       Margin="20,0,0,0"/>
+                            </StackPanel>
+                            <CheckBox Content="Complete" IsChecked="{Binding Complete}" IsEnabled="False"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <!-- listViewGroupStyle -->
+                    <GroupStyle x:Key="listViewGroupStyle">
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Background="LightGray"  >
+                                    <TextBlock Text='{Binding GroupName}' Foreground="Black" Margin="10" Style="{StaticResource GroupHeaderTextStyle}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

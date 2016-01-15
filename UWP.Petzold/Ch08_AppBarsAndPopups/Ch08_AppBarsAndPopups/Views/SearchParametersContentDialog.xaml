@@ -1,0 +1,43 @@
+﻿<ContentDialog
+    x:Class="Ch08_AppBarsAndPopups.Views.SearchParametersContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch08_AppBarsAndPopups.Views"
+    xmlns:viewmodels="using:Ch08_AppBarsAndPopups.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Enter Search Parameters"
+    PrimaryButtonText="OK"
+    PrimaryButtonCommand="{Binding OKCommand}"
+    SecondaryButtonText="Cancel"
+    SecondaryButtonCommand="{Binding CancelCommand}">
+
+    <ContentDialog.DataContext>
+        <viewmodels:SearchParametersViewModel  />
+    </ContentDialog.DataContext>
+
+    <StackPanel 
+                VerticalAlignment="Stretch" 
+                HorizontalAlignment="Stretch">
+        <TextBox Name="firstNameTextBox" 
+                 Header="FirstName"
+                 Text="{Binding FirstName, Mode=TwoWay}"/>
+        <TextBox Name="lastNameTextBox" 
+                 Header="LastName"
+                 Text="{Binding LastName, Mode=TwoWay}"/>
+        <TextBox Name="stateProvinceCodeTextBox" 
+                 Header="StateProvinceCode"
+                 Text="{Binding StateProvinceCode, Mode=TwoWay}"/>
+        <TextBlock x:Name="errorTextBlock"
+                   Text="{Binding ErrorText}"/>
+
+        <!-- Content body -->
+        <!--<TextBlock Name="body" Style="{StaticResource BasicTextStyle}" TextWrapping="Wrap">
+            <TextBlock.Text>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </TextBlock.Text>
+        </TextBlock>-->
+    </StackPanel>
+</ContentDialog>

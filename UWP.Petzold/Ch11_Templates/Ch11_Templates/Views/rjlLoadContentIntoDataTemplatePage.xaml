@@ -1,0 +1,58 @@
+﻿<!--
+Acknowlegement: MSDN Library Sample
+https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.datatemplate.loadcontent
+-->
+<Page x:Name="rjlLoadContentIntoDataTemplate"
+    x:Class="Ch11_Templates.Views.rjlLoadContentIntoDataTemplatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch11_Templates.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel x:Name="rootStackPanel">
+        <StackPanel.Resources>
+            <DataTemplate x:Key="evenNumberDataTemplate">
+                <Grid>
+                    <Rectangle Stroke="Green" StrokeThickness="4" />
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="24"
+                               Foreground="Red"
+                               FontWeight="Bold" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="oddNumberDataTemplate">
+                <Grid>
+                    <Rectangle Stroke="Purple" StrokeThickness="4" />
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="24"
+                               Foreground="Blue"
+                               FontWeight="Bold" />
+                </Grid>
+            </DataTemplate>
+        </StackPanel.Resources>
+
+        <Border x:Name="selectedItemDisplayBorder" 
+                Width="50"
+                Height="50" />
+
+        <TextBlock>Select a ListBox Item.<LineBreak/>Odd number is Blue and Even number is Red.</TextBlock>
+        <ListBox x:Name="numberList" 
+                 Margin="20"
+                 SelectionChanged="OnListBoxSelectionChanged">
+            <ListBoxItem Content="1"/>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+            <ListBoxItem>6</ListBoxItem>
+            <ListBoxItem>7</ListBoxItem>
+            <ListBoxItem>8</ListBoxItem>
+            <ListBoxItem>9</ListBoxItem>
+            <ListBoxItem>10</ListBoxItem>
+        </ListBox>
+    </StackPanel>
+</Page>

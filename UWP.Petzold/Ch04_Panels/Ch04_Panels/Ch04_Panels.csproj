@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{C2A19D8A-1CB3-4CEB-A9A2-DF2994CE6AF0}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ch04_Panels</RootNamespace>
+    <AssemblyName>Ch04_Panels</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Ch04_Panels_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>A66D99F993C97C6DB792AE9307D1913BC8AE5FE8</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Ch04_Panels_TemporaryKey.pfx" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppShell.xaml.cs">
+      <DependentUpon>AppShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\IDelegateCommand.cs" />
+    <Compile Include="Controls\NavMenuListView.cs" />
+    <Compile Include="Controls\PageHeader.xaml.cs">
+      <DependentUpon>PageHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BooleanConverter.cs" />
+    <Compile Include="Converters\BooleanNegationConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\DateTimeToDateTimeOffsetConverter.cs" />
+    <Compile Include="Converters\DecimalToStringConverter.cs" />
+    <Compile Include="Converters\FirstErrorConverter.cs" />
+    <Compile Include="Converters\FormattedStringConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\StringToDecimalConverter.cs" />
+    <Compile Include="Converters\TextToHeaderVisibilityConverter.cs" />
+    <Compile Include="Models\ClassAndSubclasses.cs" />
+    <Compile Include="NavMenuItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BindableBase.cs" />
+    <Compile Include="Views\BetterBorderedTextPage.xaml.cs">
+      <DependentUpon>BetterBorderedTextPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ColorItem.xaml.cs" />
+    <Compile Include="Views\ColorList1Page.xaml.cs">
+      <DependentUpon>ColorList1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ColorList2Page.xaml.cs">
+      <DependentUpon>ColorList2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ColorList3Page.xaml.cs">
+      <DependentUpon>ColorList3Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ColorWrapPage.xaml.cs">
+      <DependentUpon>ColorWrapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DependencyObjectClassHierarchyPage.xaml.cs">
+      <DependentUpon>DependencyObjectClassHierarchyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LandingPage.xaml.cs">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NaiveBorderedTextPage.xaml.cs">
+      <DependentUpon>NaiveBorderedTextPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SimpleEclipsePage.xaml.cs">
+      <DependentUpon>SimpleEclipsePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SimpleHorizontalStackPage.xaml.cs">
+      <DependentUpon>SimpleHorizontalStackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SimpleVerticalStackPage.xaml.cs">
+      <DependentUpon>SimpleVerticalStackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StackPanelWithScrollingPage.xaml.cs">
+      <DependentUpon>StackPanelWithScrollingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TapAndShowPointPage.xaml.cs">
+      <DependentUpon>TapAndShowPointPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TextOnCanvasPage.xaml.cs" />
+    <Compile Include="Views\TheTaleOfTomKittenPage.xaml.cs">
+      <DependentUpon>TheTaleOfTomKittenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WhatSizeWithBindingConverterPage.xaml.cs">
+      <DependentUpon>WhatSizeWithBindingConverterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WhatSizeWithBindingsPage.xaml.cs">
+      <DependentUpon>WhatSizeWithBindingsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\tom04.jpg" />
+    <Content Include="Images\tom05.jpg" />
+    <Content Include="Images\tom08.jpg" />
+    <Content Include="Images\tom11.jpg" />
+    <Content Include="Images\tom12.jpg" />
+    <Content Include="Images\tom15.jpg" />
+    <Content Include="Images\tom16.jpg" />
+    <Content Include="Images\tom19.jpg" />
+    <Content Include="Images\tom20.jpg" />
+    <Content Include="Images\tom23.jpg" />
+    <Content Include="Images\tom24.jpg" />
+    <Content Include="Images\tom27.jpg" />
+    <Content Include="Images\tom28.jpg" />
+    <Content Include="Images\tom31.jpg" />
+    <Content Include="Images\tom32.jpg" />
+    <Content Include="Images\tom35.jpg" />
+    <Content Include="Images\tom36.jpg" />
+    <Content Include="Images\tom39.jpg" />
+    <Content Include="Images\tom40.jpg" />
+    <Content Include="Images\tom43.jpg" />
+    <Content Include="Images\tom44.jpg" />
+    <Content Include="Images\tom47.jpg" />
+    <Content Include="Images\tom48.jpg" />
+    <Content Include="Images\tom51.jpg" />
+    <Content Include="Images\tom52.jpg" />
+    <Content Include="Images\tom55.jpg" />
+    <Content Include="Images\tom57.jpg" />
+    <Content Include="Images\tom58.jpg" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\" />
+    <Folder Include="Strings\en-US\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PageHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BetterBorderedTextPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ColorItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ColorList1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ColorList2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ColorList3Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ColorWrapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DependencyObjectClassHierarchyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NaiveBorderedTextPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SimpleEclipsePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SimpleHorizontalStackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SimpleVerticalStackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StackPanelWithScrollingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TapAndShowPointPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TextOnCanvasPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TheTaleOfTomKittenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WhatSizeWithBindingConverterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WhatSizeWithBindingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UWP.Controls\UWP.Controls.csproj">
+      <Project>{ce1ca58b-729a-4bd5-a6e3-1bcd6cd13845}</Project>
+      <Name>UWP.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

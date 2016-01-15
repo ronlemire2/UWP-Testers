@@ -1,0 +1,44 @@
+﻿<Page x:Name="SimplePageNavigation"
+    x:Class="Ch12_PagesAndNavigation.Views.SimplePageNavigationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch12_PagesAndNavigation.Views"
+    RequestedTheme="Dark"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock Text="Main Page"
+                       FontSize="48"
+                       HorizontalAlignment="Center"
+                       Margin="48" />
+
+            <TextBox x:Name="txtbox"
+                     Width="320"
+                     HorizontalAlignment="Center"
+                     Margin="48" />
+
+            <Button Content="Go to Second Page"
+                    HorizontalAlignment="Center"
+                    Margin="48"
+                    Click="OnGotoButtonClick" />
+
+            <Button x:Name="forwardButton"
+                    Content="Go Forward"
+                    IsEnabled="{Binding ElementName=SimplePageNavigation, Path=Frame.CanGoForward}"
+                    HorizontalAlignment="Center"
+                    Margin="48"
+                    Click="OnForwardButtonClick" />
+
+            <Button x:Name="backButton"
+                    Content="Go Back"
+                    IsEnabled="{Binding ElementName=SimplePageNavigation, Path=Frame.CanGoBack}"
+                    HorizontalAlignment="Center"
+                    Margin="48"
+                    Click="OnBackButtonClick" />
+
+        </StackPanel>
+    </Grid>
+</Page>

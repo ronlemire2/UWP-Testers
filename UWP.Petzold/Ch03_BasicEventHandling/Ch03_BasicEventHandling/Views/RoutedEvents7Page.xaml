@@ -1,0 +1,29 @@
+﻿<Page x:Name="RoutedEvents7"
+    x:Class="Ch03_BasicEventHandling.Views.RoutedEvents7Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch03_BasicEventHandling.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontSize ="24"
+    mc:Ignorable="d">
+
+    <!--
+    The lessons here are important: Looks can be deceiving . 
+    An element with default settings of  HorizontalAlignment and VerticalAlignment 
+    might look the same as one with settings of Left and Top, 
+    but it is actually occupying the entire area of its container and might block events from reaching  underlying elements . 
+    
+    A Panel derivative with a default Background property of null 
+    might look the same as one with a setting of Transparent, 
+    but it does not respond to touch events .
+    -->
+    
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
+    <!--<Grid >-->
+    <Grid Background="Transparent">
+        <!--<TextBlock Text="Hello, Windows 10!" Foreground="Red"/>-->
+        <!--<TextBlock Text="Hello, Windows 10!" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" />-->
+        <TextBlock Text="Hello, Windows 10!" Foreground="Red" TextAlignment="Left" VerticalAlignment="Top" />
+    </Grid>
+</Page>

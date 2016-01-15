@@ -1,0 +1,24 @@
+﻿<Page x:Name="TapTextBlock"
+    x:Class="Ch03_BasicEventHandling.Views.TapTextBlockPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch03_BasicEventHandling.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <TextBlock x:Name="txtblk"
+                   Text="Tap Text!"
+                   FontSize="96"
+                   Tapped="OnTextBlockTapped" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding rgb0}" Margin="0,0,15,0"/>
+                <TextBlock Text="{Binding rgb1}" Margin="0,0,15,0" />
+                <TextBlock Text="{Binding rgb2}" Margin="0,0,15,0" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

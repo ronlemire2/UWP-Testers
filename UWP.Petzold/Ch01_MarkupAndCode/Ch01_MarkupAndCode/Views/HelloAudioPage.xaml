@@ -1,0 +1,23 @@
+﻿<Page x:Name="HelloAudio"
+    x:Class="Ch01_MarkupAndCode.Views.HelloAudioPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch01_MarkupAndCode.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="grid"   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--<MediaElement x:Name="mediaElement" 
+                      Source="http://www.charlespetzold.com/pw6/AudioGreeting.wma" 
+                      AreTransportControlsEnabled="True" 
+                      AutoPlay="False" />-->
+        <MediaElement x:Name="mediaElement" 
+                      Source="/Assets/AudioGreeting.wma" 
+                      AreTransportControlsEnabled="True" 
+                      AutoPlay="False" />
+
+        <!--<MediaElement Source="http://www.charlespetzold.com/pw6/AudioGreeting.wma" />-->
+        <!--<MediaElement Source="/Assets/AudioGreeting.wma" AreTransportControlsEnabled="True" />-->
+    </Grid>
+</Page>

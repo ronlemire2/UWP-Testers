@@ -1,0 +1,41 @@
+﻿<Page x:Name="DependencyProperties"
+    x:Class="Ch05_ControlInteraction.Views.DependencyPropertiesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch05_ControlInteraction.Views"
+    xmlns:controls="using:Ch05_ControlInteraction.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="baseButtonStyle" TargetType="controls:GradientButton">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0 12" />
+        </Style>
+        <Style x:Key="blueRedButtonStyle"
+               TargetType="controls:GradientButton"
+               BasedOn="{StaticResource baseButtonStyle}">
+            <Setter Property="Color1" Value="Blue" />
+            <Setter Property="Color2" Value="Red" />
+        </Style>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <!-- default settings -->
+            <controls:GradientButton Content="GradientButton #1"
+                                     Style="{StaticResource baseButtonStyle}" />
+            <!-- style settings -->
+            <controls:GradientButton Content="GradientButton #2"
+                                     Style="{StaticResource blueRedButtonStyle}" />
+            <!-- local settings -->
+            <controls:GradientButton Content="GradientButton #3"
+                                     Style="{StaticResource baseButtonStyle}"
+                                     Color1="Aqua"
+                                     Color2="Lime" />
+            
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,49 @@
+﻿<Page x:Name="GradientBrushMarkup"
+    x:Class="Ch02_XamlSyntax.Views.GradientBrushMarkupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch02_XamlSyntax.Views"
+    >
+
+    <!--<Page.Resources>
+        <LinearGradientBrush x:Key="ForegroundBrush">
+            <LinearGradientBrush.StartPoint>0,1</LinearGradientBrush.StartPoint>
+            <LinearGradientBrush.EndPoint>1,0</LinearGradientBrush.EndPoint>
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="Blue" />
+                <GradientStop Offset="1" Color="Red" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        
+        <LinearGradientBrush x:Key="BackgroundBrush">
+            <LinearGradientBrush.StartPoint>0,1</LinearGradientBrush.StartPoint>
+            <LinearGradientBrush.EndPoint>1,0</LinearGradientBrush.EndPoint>
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="Red" />
+                <GradientStop Offset="1" Color="Blue" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+    </Page.Resources>-->
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="1,0">
+                <GradientStop Offset="0" Color="Red" />
+                <GradientStop Offset="1" Color="Blue" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock x:Name="txtblk" 
+                   Text = "Hello Windows 10!"
+                   FontSize="96"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1 0">
+                    <GradientStop Offset="0" Color="Blue" />
+                    <GradientStop Offset="1" Color="Red" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+    </Grid>
+</Page>

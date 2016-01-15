@@ -1,0 +1,33 @@
+﻿<Page x:Name="LookAtAppBarButtonStyles"
+    x:Class="Ch08_AppBarsAndPopups.Views.LookAtAppBarButtonStylesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch08_AppBarsAndPopups.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="OnLoaded"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <RadioButton x:Name="symbolSortRadio"
+                             Content="Sort by symbol"
+                             Margin="5"
+                             Checked="OnRadioButtonChecked" />
+
+                <RadioButton x:Name="textSortRadio"
+                             Content="Sort by text"
+                             Margin="5"
+                             Checked="OnRadioButtonChecked" />
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer FontSize="20">
+            <StackPanel x:Name="stackPanel" />
+        </ScrollViewer>
+    </Grid>
+</Page>

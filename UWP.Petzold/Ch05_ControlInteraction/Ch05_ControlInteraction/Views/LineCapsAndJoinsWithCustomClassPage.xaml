@@ -1,0 +1,81 @@
+﻿<Page x:Name="LineCapsAndJoinsWithCustomClass"
+    x:Class="Ch05_ControlInteraction.Views.LineCapsAndJoinsWithCustomClassPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch05_ControlInteraction.Views"
+    xmlns:controls="using:Ch05_ControlInteraction.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="startLineCapPanel"
+                    Grid.Row="0" Grid.Column="0"
+                    Margin="24">
+            <controls:LineCapRadioButton Content="Flat start"
+                                         LineCapTag="Flat"
+                                         Checked="OnStartLineCapRadioButtonChecked" />
+            <controls:LineCapRadioButton Content="Round start"
+                                         LineCapTag="Round"
+                                         Checked="OnStartLineCapRadioButtonChecked" />
+            <controls:LineCapRadioButton Content="Square start"
+                                         LineCapTag="Square"
+                                         Checked="OnStartLineCapRadioButtonChecked" />
+            <controls:LineCapRadioButton Content="Triangle start"
+                                         LineCapTag="Triangle"
+                                         Checked="OnStartLineCapRadioButtonChecked" />
+        </StackPanel>
+
+        <StackPanel x:Name="endLineCapPanel"
+                    Grid.Row="0" Grid.Column="2"
+                    Margin="24">
+            <controls:LineCapRadioButton Content="Flat end"
+                                         LineCapTag="Flat"
+                                         Checked="OnEndLineCapRadioButtonChecked" />
+            <controls:LineCapRadioButton Content="Round start"
+                                         LineCapTag="Round"
+                                         Checked="OnEndLineCapRadioButtonChecked" />
+            <controls:LineCapRadioButton Content="Square start"
+                                         LineCapTag="Square"
+                                         Checked="OnEndLineCapRadioButtonChecked" />
+            <controls:LineCapRadioButton Content="Triangle start"
+                                         LineCapTag="Triangle"
+                                         Checked="OnEndLineCapRadioButtonChecked" />            
+        </StackPanel>
+
+        <StackPanel x:Name="lineJoinPanel"
+                    Grid.Row="1" Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    Margin="24">
+            <controls:LineJoinRadioButton Content="Bevel join"
+                                          LineJoinTag="Bevel"
+                                          Checked="OnLineJoinRadioButtonChecked" />
+            <controls:LineJoinRadioButton Content="Miter join"
+                                          LineJoinTag="Miter"
+                                          Checked="OnLineJoinRadioButtonChecked" />
+            <controls:LineJoinRadioButton Content="Round join"
+                                          LineJoinTag="Round"
+                                          Checked="OnLineJoinRadioButtonChecked" />
+        </StackPanel>
+
+        <Polyline Name="polyline"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  Points="0 0, 500 1000, 1000 0"
+                  Stroke="{StaticResource ApplicationForegroundThemeBrush}"
+                  StrokeThickness="100"
+                  Stretch="Fill"
+                  Margin="24" />
+    </Grid>
+</Page>

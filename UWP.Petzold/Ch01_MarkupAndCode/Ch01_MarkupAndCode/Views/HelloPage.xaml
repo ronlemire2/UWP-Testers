@@ -1,0 +1,23 @@
+﻿<Page x:Name="Hello"
+    x:Class="Ch01_MarkupAndCode.Views.HelloPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ch01_MarkupAndCode.Views"
+    FontFamily="Times New Roman"
+    FontSize="96"
+    FontStyle="Italic"
+    RequestedTheme="Light">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- 
+        Since not setting Foreground on TextBlock or Page, 
+        TextBlock->Foreground depends on ApplicationPageBackgroundThemeBrush/RequestedTheme combination.
+        Dark theme gets 'White' and Light theme gets 'Black'.
+        -->
+        <TextBlock x:Name="tbHello"
+                   Text="Hello Windows 10!"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+    </Grid>
+</Page>
