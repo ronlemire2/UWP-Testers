@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{3C08AE32-4AB0-475D-A812-5819B6F10778}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MemoryGame</RootNamespace>
+    <AssemblyName>MemoryGame</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MemoryGame_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Assets\Argentina\Thumbs.db" />
+    <None Include="Assets\China\Thumbs.db" />
+    <None Include="Assets\Default\Thumbs.db" />
+    <None Include="Assets\India\Thumbs.db" />
+    <None Include="Assets\Mexico\Thumbs.db" />
+    <None Include="Assets\Zoo\Thumbs.db" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CardTemplate.xaml.cs">
+      <DependentUpon>CardTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameBoard.xaml.cs">
+      <DependentUpon>GameBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="MemoryGame_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Argentina\03.jpg" />
+    <Content Include="Assets\Argentina\04.jpg" />
+    <Content Include="Assets\Argentina\05.jpg" />
+    <Content Include="Assets\Argentina\06.jpg" />
+    <Content Include="Assets\Argentina\07.jpg" />
+    <Content Include="Assets\Argentina\08.jpg" />
+    <Content Include="Assets\Argentina\09.jpg" />
+    <Content Include="Assets\Argentina\10.jpg" />
+    <Content Include="Assets\Argentina\11.jpg" />
+    <Content Include="Assets\Argentina\12.jpg" />
+    <Content Include="Assets\Argentina\13.jpg" />
+    <Content Include="Assets\Argentina\14.jpg" />
+    <Content Include="Assets\Argentina\15.jpg" />
+    <Content Include="Assets\Argentina\16.jpg" />
+    <Content Include="Assets\Argentina\17.jpg" />
+    <Content Include="Assets\Argentina\18.jpg" />
+    <Content Include="Assets\Argentina\19.jpg" />
+    <Content Include="Assets\Argentina\20.jpg" />
+    <Content Include="Assets\Argentina\21.jpg" />
+    <Content Include="Assets\Argentina\22.jpg" />
+    <Content Include="Assets\Argentina\23.jpg" />
+    <Content Include="Assets\Argentina\24.jpg" />
+    <Content Include="Assets\Argentina\25.jpg" />
+    <Content Include="Assets\Argentina\26.jpg" />
+    <Content Include="Assets\Argentina\27.jpg" />
+    <Content Include="Assets\Argentina\28.jpg" />
+    <Content Include="Assets\Argentina\29.jpg" />
+    <Content Include="Assets\Argentina\30.jpg" />
+    <Content Include="Assets\Argentina\31.jpg" />
+    <Content Include="Assets\Argentina\32.jpg" />
+    <Content Include="Assets\China\01.jpg" />
+    <Content Include="Assets\China\02.jpg" />
+    <Content Include="Assets\China\03.jpg" />
+    <Content Include="Assets\China\04.jpg" />
+    <Content Include="Assets\China\05.jpg" />
+    <Content Include="Assets\China\06.jpg" />
+    <Content Include="Assets\China\07.jpg" />
+    <Content Include="Assets\China\08.jpg" />
+    <Content Include="Assets\China\09.jpg" />
+    <Content Include="Assets\China\10.jpg" />
+    <Content Include="Assets\China\11.jpg" />
+    <Content Include="Assets\China\12.jpg" />
+    <Content Include="Assets\China\13.jpg" />
+    <Content Include="Assets\China\14.jpg" />
+    <Content Include="Assets\China\15.jpg" />
+    <Content Include="Assets\China\16.jpg" />
+    <Content Include="Assets\China\17.jpg" />
+    <Content Include="Assets\China\18.jpg" />
+    <Content Include="Assets\China\19.jpg" />
+    <Content Include="Assets\China\20.jpg" />
+    <Content Include="Assets\China\21.jpg" />
+    <Content Include="Assets\China\22.jpg" />
+    <Content Include="Assets\China\23.jpg" />
+    <Content Include="Assets\China\24.jpg" />
+    <Content Include="Assets\China\25.jpg" />
+    <Content Include="Assets\China\26.jpg" />
+    <Content Include="Assets\China\27.jpg" />
+    <Content Include="Assets\China\28.jpg" />
+    <Content Include="Assets\China\29.jpg" />
+    <Content Include="Assets\China\30.jpg" />
+    <Content Include="Assets\China\31.jpg" />
+    <Content Include="Assets\China\32.jpg" />
+    <Content Include="Assets\Default\01.jpg" />
+    <Content Include="Assets\Default\02.jpg" />
+    <Content Include="Assets\Default\03.jpg" />
+    <Content Include="Assets\Default\04.jpg" />
+    <Content Include="Assets\Default\05.jpg" />
+    <Content Include="Assets\Default\06.jpg" />
+    <Content Include="Assets\Default\07.jpg" />
+    <Content Include="Assets\Default\08.jpg" />
+    <Content Include="Assets\Default\09.jpg" />
+    <Content Include="Assets\Default\10.jpg" />
+    <Content Include="Assets\Default\11.jpg" />
+    <Content Include="Assets\Default\12.jpg" />
+    <Content Include="Assets\Default\13.jpg" />
+    <Content Include="Assets\Default\14.jpg" />
+    <Content Include="Assets\Default\15.jpg" />
+    <Content Include="Assets\Default\16.jpg" />
+    <Content Include="Assets\Default\17.jpg" />
+    <Content Include="Assets\Default\18.jpg" />
+    <Content Include="Assets\Default\19.jpg" />
+    <Content Include="Assets\Default\20.jpg" />
+    <Content Include="Assets\Default\21.jpg" />
+    <Content Include="Assets\Default\22.jpg" />
+    <Content Include="Assets\Default\23.jpg" />
+    <Content Include="Assets\Default\24.jpg" />
+    <Content Include="Assets\Default\25.jpg" />
+    <Content Include="Assets\Default\26.jpg" />
+    <Content Include="Assets\Default\27.jpg" />
+    <Content Include="Assets\Default\28.jpg" />
+    <Content Include="Assets\Default\29.jpg" />
+    <Content Include="Assets\Default\30.jpg" />
+    <Content Include="Assets\Default\31.jpg" />
+    <Content Include="Assets\Default\32.jpg" />
+    <Content Include="Assets\India\01.jpg" />
+    <Content Include="Assets\India\02.jpg" />
+    <Content Include="Assets\India\03.jpg" />
+    <Content Include="Assets\India\04.jpg" />
+    <Content Include="Assets\India\05.jpg" />
+    <Content Include="Assets\India\06.jpg" />
+    <Content Include="Assets\India\07.jpg" />
+    <Content Include="Assets\India\08.jpg" />
+    <Content Include="Assets\India\09.jpg" />
+    <Content Include="Assets\India\10.jpg" />
+    <Content Include="Assets\India\11.jpg" />
+    <Content Include="Assets\India\12.jpg" />
+    <Content Include="Assets\India\13.jpg" />
+    <Content Include="Assets\India\14.jpg" />
+    <Content Include="Assets\India\15.jpg" />
+    <Content Include="Assets\India\16.jpg" />
+    <Content Include="Assets\India\17.jpg" />
+    <Content Include="Assets\India\18.jpg" />
+    <Content Include="Assets\India\19.jpg" />
+    <Content Include="Assets\India\20.jpg" />
+    <Content Include="Assets\India\21.jpg" />
+    <Content Include="Assets\India\22.jpg" />
+    <Content Include="Assets\India\23.jpg" />
+    <Content Include="Assets\India\24.jpg" />
+    <Content Include="Assets\India\25.jpg" />
+    <Content Include="Assets\India\26.jpg" />
+    <Content Include="Assets\India\27.jpg" />
+    <Content Include="Assets\India\28.jpg" />
+    <Content Include="Assets\India\29.jpg" />
+    <Content Include="Assets\India\30.jpg" />
+    <Content Include="Assets\India\31.jpg" />
+    <Content Include="Assets\India\32.jpg" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\Mexico\01.jpg" />
+    <Content Include="Assets\Mexico\02.jpg" />
+    <Content Include="Assets\Mexico\03.jpg" />
+    <Content Include="Assets\Mexico\04.jpg" />
+    <Content Include="Assets\Mexico\05.jpg" />
+    <Content Include="Assets\Mexico\06.jpg" />
+    <Content Include="Assets\Mexico\07.jpg" />
+    <Content Include="Assets\Mexico\08.jpg" />
+    <Content Include="Assets\Mexico\09.jpg" />
+    <Content Include="Assets\Mexico\10.jpg" />
+    <Content Include="Assets\Mexico\11.jpg" />
+    <Content Include="Assets\Mexico\12.jpg" />
+    <Content Include="Assets\Mexico\13.jpg" />
+    <Content Include="Assets\Mexico\14.jpg" />
+    <Content Include="Assets\Mexico\15.jpg" />
+    <Content Include="Assets\Mexico\16.jpg" />
+    <Content Include="Assets\Mexico\17.jpg" />
+    <Content Include="Assets\Mexico\18.jpg" />
+    <Content Include="Assets\Mexico\19.jpg" />
+    <Content Include="Assets\Mexico\20.jpg" />
+    <Content Include="Assets\Mexico\21.jpg" />
+    <Content Include="Assets\Mexico\22.jpg" />
+    <Content Include="Assets\Mexico\23.jpg" />
+    <Content Include="Assets\Mexico\24.jpg" />
+    <Content Include="Assets\Mexico\25.jpg" />
+    <Content Include="Assets\Mexico\26.jpg" />
+    <Content Include="Assets\Mexico\27.jpg" />
+    <Content Include="Assets\Mexico\28.jpg" />
+    <Content Include="Assets\Mexico\29.jpg" />
+    <Content Include="Assets\Mexico\30.jpg" />
+    <Content Include="Assets\Mexico\31.jpg" />
+    <Content Include="Assets\Mexico\32.jpg" />
+    <Content Include="Assets\Zoo\01.jpg" />
+    <Content Include="Assets\Zoo\02.jpg" />
+    <Content Include="Assets\Zoo\03.jpg" />
+    <Content Include="Assets\Zoo\04.jpg" />
+    <Content Include="Assets\Zoo\05.jpg" />
+    <Content Include="Assets\Zoo\06.jpg" />
+    <Content Include="Assets\Zoo\07.jpg" />
+    <Content Include="Assets\Zoo\08.jpg" />
+    <Content Include="Assets\Zoo\09.jpg" />
+    <Content Include="Assets\Zoo\10.jpg" />
+    <Content Include="Assets\Zoo\11.jpg" />
+    <Content Include="Assets\Zoo\12.jpg" />
+    <Content Include="Assets\Zoo\13.jpg" />
+    <Content Include="Assets\Zoo\14.jpg" />
+    <Content Include="Assets\Zoo\15.jpg" />
+    <Content Include="Assets\Zoo\16.jpg" />
+    <Content Include="Assets\Zoo\17.jpg" />
+    <Content Include="Assets\Zoo\18.jpg" />
+    <Content Include="Assets\Zoo\19.jpg" />
+    <Content Include="Assets\Zoo\20.jpg" />
+    <Content Include="Assets\Zoo\21.jpg" />
+    <Content Include="Assets\Zoo\22.jpg" />
+    <Content Include="Assets\Zoo\23.jpg" />
+    <Content Include="Assets\Zoo\24.jpg" />
+    <Content Include="Assets\Zoo\25.jpg" />
+    <Content Include="Assets\Zoo\26.jpg" />
+    <Content Include="Assets\Zoo\27.jpg" />
+    <Content Include="Assets\Zoo\28.jpg" />
+    <Content Include="Assets\Zoo\29.jpg" />
+    <Content Include="Assets\Zoo\30.jpg" />
+    <Content Include="Assets\Zoo\31.jpg" />
+    <Content Include="Assets\Zoo\32.jpg" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="CardTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GameBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Screenshots\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,61 @@
+﻿<MemoryClassLibrary:ViewBase x:Class="MemoryGame.CardTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:MemoryGame"
+             xmlns:MemoryClassLibrary="using:MemoryClassLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="400">
+
+    <Grid Width="150"
+          Height="150"
+          d:DataContext="{d:DesignInstance MemoryClassLibrary:Card, IsDesignTimeCreatable=True}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CardStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.3"
+                                      To="FaceDown" />
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="FaceDown">
+                    <Storyboard>
+                        <FadeOutThemeAnimation TargetName="image" />
+                        <FadeOutThemeAnimation TargetName="FrostedRect" />
+                        <FadeOutThemeAnimation TargetName="FrameRect" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="FaceUp">
+                    <Storyboard>
+                        <FadeOutThemeAnimation TargetName="FrostedRect" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Matched">
+                    <Storyboard>
+                        <FadeOutThemeAnimation TargetName="FrostedRect" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Rectangle x:Name="BackOfCardRect"
+                   Fill="Red"
+                   Stroke="Black"
+                   RadiusX="40"
+                   RadiusY="20" />
+        <Image x:Name="image"
+               Source="{Binding ImageUri}"
+               Stretch="UniformToFill" />
+        <Rectangle x:Name="FrostedRect"
+                   Fill="#40000000"
+                   RadiusY="20"
+                   RadiusX="40"
+                   Stroke="White"
+                   StrokeThickness="5"
+                   Opacity="0" />
+        <Rectangle x:Name="FrameRect"
+                   RadiusY="20"
+                   RadiusX="40"
+                   Stroke="Orange"
+                   StrokeThickness="5" />
+    </Grid>
+</MemoryClassLibrary:ViewBase>
