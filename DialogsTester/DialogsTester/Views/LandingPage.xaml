@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="DialogsTester.Views.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DialogsTester.Views"
+    xmlns:controls="using:DialogsTester.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader x:Name="pageHeader">
+            <controls:PageHeader.HeaderContent>
+                <TextBlock x:Name="title" Style="{ThemeResource PageTitleTextBlockStyle}" Text="DIALOG SAMPLES"/>
+            </controls:PageHeader.HeaderContent>
+        </controls:PageHeader>
+
+        <ScrollViewer Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True" Margin="12,4,0,0">
+            <StackPanel >
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Confirmation - ContentDialog, Yes/No, Ok/Cancel confirmation type dialogs</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Notification - ContentDialog, WiFi Connection dialog from Code</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Search Parameters - ContentDialog, Passing data to and from ContentDialog via ViewModel</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Sign In - ContentDialog, Custom Sign-In dialog derived from ContentDialog</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Terms Of Use - ContentDialog, Terms of Use dialog from XAML</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

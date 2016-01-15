@@ -1,0 +1,39 @@
+﻿<Page x:Name="SearchParameters"
+    x:Class="DialogsTester.Views.SearchParametersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DialogsTester.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="3">
+            <TextBlock Text="Enter values to initialize dialog or leave empty:" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="FirstNameIn" Header="FirstName In" />
+            <TextBox x:Name="LastNameIn" Header="LastName In" />
+            <TextBox x:Name="StateProvinceCodeIn" Header="StateProvinceCode In" />
+        </StackPanel>
+
+        <Button Content="Show SearchParameters Dialog" 
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0,30,0,20"
+                FontSize="16" FontWeight="Bold"
+                Click="OnShowSearchParametersDialog" />
+
+        <StackPanel Grid.Row="2" Margin="3">
+            <TextBlock Text="Values returned from dialog:"  FontSize="16" FontWeight="Bold" />
+            <TextBox x:Name="FirstNameOut" Header="FirstName Out" IsReadOnly="True" />
+            <TextBox x:Name="LastNameOut" Header="LastName Out" IsReadOnly="True" />
+            <TextBox x:Name="StateProvinceCodeOut" Header="StateProvinceCode Out" IsReadOnly="True" />
+        </StackPanel>
+    </Grid>
+</Page>
