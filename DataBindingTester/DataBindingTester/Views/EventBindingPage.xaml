@@ -1,0 +1,35 @@
+﻿<Page x:Name="EventBinding"
+    x:Class="DataBindingTester.Views.EventBindingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DataBindingTester.Views"
+    xmlns:viewmodels="using:DataBindingTester.ViewModels"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <viewmodels:EventBindingPageViewModel x:Key="EventBindingPageViewModel" />
+    </Page.Resources>
+    <Page.DataContext>
+        <Binding Source="{StaticResource EventBindingPageViewModel}"/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListBox x:Name="listBox"
+                     Width="200"
+                     HorizontalAlignment="Center">
+            <ListBox.Items>
+                <ListBoxItem>ListBoxItem1</ListBoxItem>
+                <ListBoxItem>ListBoxItem2</ListBoxItem>
+            </ListBox.Items>
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="SelectionChanged">
+                    <core:InvokeCommandAction Command="{Binding ListBoxSelectionChangedCommand}" CommandParameter="foo" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </ListBox>
+    </Grid>
+</Page>

@@ -1,0 +1,93 @@
+﻿<Page x:Name="BasicsX"
+    x:Class="DataBindingTester.Views.BasicsPageX"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DataBindingTester.Views"
+    xmlns:controls="using:DataBindingTester.Controls"
+    xmlns:converters="using:DataBindingTester.Converters"
+    xmlns:viewmodels="using:DataBindingTester.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:ObjectToPersonViewModelConverter x:Key="ObjectToPersonViewModelConverter" />
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <RelativePanel Grid.Row="1">
+            <ListView x:Name="PersonVMsListView" 
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  ItemsSource="{x:Bind ViewModel.FamilyMembers}"
+                  SelectedItem="{x:Bind ViewModel.SelectedFamilyMember, Mode=TwoWay, Converter={StaticResource ObjectToPersonViewModelConverter}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:PersonViewModel">
+                        <StackPanel Margin="6" Orientation="Horizontal">
+                            <SymbolIcon Symbol="Contact"  Margin="0,0,12,0" />
+                            <StackPanel>
+                                <TextBlock Text="{x:Bind FirstName}"/>
+                                <TextBlock Text="{x:Bind LastName}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <RelativePanel x:Name="PersonVMRelativePanel"
+            RelativePanel.RightOf="PersonVMsListView"
+            DataContext="{x:Bind ViewModel.SelectedFamilyMember}" >
+                <TextBlock x:Name="tbFirstNameLabel"
+                       RelativePanel.AlignTopWithPanel="True"
+                       Text="First Name:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtFirstName"
+                        Text="{x:Bind ViewModel.SelectedFamilyMember.FirstName, Mode=TwoWay}"
+                        RelativePanel.Below="tbFirstNameLabel"
+                        BorderThickness="1"
+                        Foreground="Black" />
+                <TextBlock x:Name="tbLastNameLabel"
+                        RelativePanel.Below="txtFirstName"
+                        Text="Last Name:"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" />
+                <TextBox x:Name="txtLastName"
+                        RelativePanel.Below="tbLastNameLabel"
+                        Text="{x:Bind ViewModel.SelectedFamilyMember.LastName, Mode=TwoWay}"
+                        Margin="0,0,0,10" />
+                <TextBlock x:Name="tbFullNameLabel"
+                       RelativePanel.Below="txtLastName"
+                       Text="Full Name:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+                <TextBlock x:Name="tbFullName"
+                       RelativePanel.Below="tbFullNameLabel"
+                       Text="{x:Bind ViewModel.SelectedFamilyMember.FullName, Mode=TwoWay}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
+                <TextBlock x:Name="tbMessageLabel"
+                       RelativePanel.Below="tbFullName"
+                       Text="Message:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+                <TextBlock x:Name="tbMessage"
+                       RelativePanel.Below="tbMessageLabel"
+                       TextWrapping="Wrap"
+                       Text="{x:Bind ViewModel.SelectedFamilyMember.Message, Mode=TwoWay}"
+                        />
+            </RelativePanel>
+            <Button x:Name="button"
+                    RelativePanel.Below="PersonVMRelativePanel"
+                    RelativePanel.AlignLeftWithPanel="True"
+                Content="Click Me"
+                Command="{x:Bind ViewModel.ClickMeCommand}"
+                Width="77" />
+        </RelativePanel>
+    </Grid>
+</Page>

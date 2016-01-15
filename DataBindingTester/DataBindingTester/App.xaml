@@ -1,0 +1,19 @@
+﻿<Application
+    x:Class="DataBindingTester.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DataBindingTester"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/Styles.xaml"/>
+                <ResourceDictionary Source="Common/BookstoreStyles.xaml"/>
+                <ResourceDictionary Source="Common/StandardStyles.xaml" />
+                <ResourceDictionary>
+                    <x:String x:Key="AppName">DataBindingTester</x:String>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
