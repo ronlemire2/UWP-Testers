@@ -2,14 +2,34 @@
 
 **DataBindingTester**
 
+1. Basic MVVM
+2. MVVM with CollectionViewSource
+3. MVVM with x:Bind
+4. Binding to a UserControl DataTemplate
+5. Interactivity EventBinding
+6. ReUseable UserControl with DataBinding
+7. SemanticZoom
+
 
 **DialogsTester**
+
+1. Confirmation
+2. Notification
+3. SearchParameters
+4. Sign In
+5. Terms Of Use
 
 
 **AsyncTester**
 
+1. Progress and Cancel
+
 
 **AdaptiveTester**
+
+1. Bugnion Sample
+2. Prosise Sample
+3. Responsive Grid
 
 **MemoryGame** 
 
