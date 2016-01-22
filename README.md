@@ -39,6 +39,9 @@
 3. FlipView (future)
 4. ListBox (future)
 5. ComboBox (future)
+6. SemanticZoom
+7. CollectionViewSource
+8. AdaptiveTrigger
 
 
 **MemoryGame** 
