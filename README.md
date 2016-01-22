@@ -1,5 +1,17 @@
 # UWP-Testers
 
+**AsyncTester**
+
+1. Progress and Cancel
+
+
+**AdaptiveTester**
+
+1. Bugnion Sample
+2. Prosise Sample
+3. Responsive Grid
+
+
 **DataBindingTester**
 
 1. Basic MVVM
@@ -20,20 +32,19 @@
 5. Terms Of Use
 
 
-**AsyncTester**
+**ItemsControlTester**
 
-1. Progress and Cancel
+1. GridView
+2. ListView (future)
+3. FlipView (future)
+4. ListBox (future)
+5. ComboBox (future)
 
-
-**AdaptiveTester**
-
-1. Bugnion Sample
-2. Prosise Sample
-3. Responsive Grid
 
 **MemoryGame** 
 
 A fairly complex Microsoft Blend tutorial. Originally created for Visual Studio 2013. Converted to a Visual Studio 2015 Universal Windows App. Sample code not available anymore. Tutorial steps are located at: https://msdn.microsoft.com/en-us/library/windows/apps/jj129462(v=vs.110).aspx.
+
 
 **UWP.Petzold**
 
