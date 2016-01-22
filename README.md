@@ -7,9 +7,10 @@
 
 **AdaptiveTester**
 
-1. Bugnion Sample
-2. Prosise Sample
-3. Responsive Grid
+1. Responsive Grid
+2. Bugnion Sample
+3. Prosise Sample
+
 
 
 **DataBindingTester**
