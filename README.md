@@ -35,7 +35,7 @@
 **ItemsControlTester**
 
 1. GridView
-2. ListView (future)
+2. ListView
 3. FlipView (future)
 4. ListBox (future)
 5. ComboBox (future)
