@@ -7,19 +7,18 @@
 
 **AdaptiveTester**
 
-1. Responsive Grid
-2. Bugnion Sample
-3. Prosise Sample
-
+1. Bugnion Sample
+2. Prosise Sample
+3. Responsive Grid
 
 
 **DataBindingTester**
 
 1. Basic MVVM
-2. MVVM with CollectionViewSource
-3. MVVM with x:Bind
-4. Binding to a UserControl DataTemplate
-5. Interactivity EventBinding
+2. Binding to a UserControl DataTemplate
+3. Interactivity EventBinding
+4. MVVM with CollectionViewSource
+5. MVVM with x:Bind
 6. ReUseable UserControl with DataBinding
 7. SemanticZoom
 
