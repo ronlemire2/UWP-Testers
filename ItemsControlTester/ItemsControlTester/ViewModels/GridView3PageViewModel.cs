@@ -1,4 +1,5 @@
 ﻿using ItemsControlTester.Models;
+using ItemsControlTester.Services;
 using Prism.Windows.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -35,14 +36,14 @@ namespace ItemsControlTester.ViewModels {
 
         #region Properties
 
+        public ObservableCollection<Author> Authors { get { return this.authors; } }
+        public ObservableCollection<BookSku> BookSkus { get { return this.bookSkus; } }
+
         public string AppName {
             get {
                 return "GridView3Page";
             }
         }
-
-        public ObservableCollection<Author> Authors { get { return this.authors; } }
-        public ObservableCollection<BookSku> BookSkus { get { return this.bookSkus; } }
 
         public string PageTitle {
             get {

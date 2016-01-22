@@ -36,20 +36,26 @@
         <SemanticZoom x:Name="wideSeZo" Visibility="Collapsed">
             <SemanticZoom.ZoomedInView>
                 <GridView
-				ItemsSource="{Binding Source={StaticResource AuthorHasACollectionOfBookSku}}"
-				ItemTemplate="{StaticResource BookTemplateWide}"
-				ItemsPanel="{StaticResource ZoomedInItemsPanelTemplate}">
+				        ItemsSource="{Binding Source={StaticResource AuthorHasACollectionOfBookSku}}"
+				        ItemTemplate="{StaticResource BookTemplateWide}"
+				        ItemsPanel="{StaticResource ZoomedInItemsPanelTemplate}">
                     <GridView.GroupStyle>
                         <GroupStyle
-						HeaderTemplate="{StaticResource AuthorGroupHeaderTemplateWide}"
-						HidesIfEmpty="True"/>
+						    HeaderTemplate="{StaticResource AuthorGroupHeaderTemplateWide}"
+						    HidesIfEmpty="True"/>
                     </GridView.GroupStyle>
                 </GridView>
             </SemanticZoom.ZoomedInView>
             <SemanticZoom.ZoomedOutView>
                 <GridView
-				ItemsSource="{Binding CollectionGroups, Source={StaticResource AuthorHasACollectionOfBookSku}}"
-				ItemTemplate="{StaticResource ZoomedOutAuthorTemplateWide}"/>
+				    ItemsSource="{Binding CollectionGroups, Source={StaticResource AuthorHasACollectionOfBookSku}}"
+				    ItemTemplate="{StaticResource ZoomedOutAuthorTemplateWide}">
+                    <!--<GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel  Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>-->
+                </GridView>
             </SemanticZoom.ZoomedOutView>
         </SemanticZoom>
 

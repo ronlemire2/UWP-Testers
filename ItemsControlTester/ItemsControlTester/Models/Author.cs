@@ -7,24 +7,44 @@ using System.Threading.Tasks;
 
 namespace ItemsControlTester.Models {
     public class Author : IEnumerable<BookSku> {
-        #region fields
+
         private static Dictionary<string, Author> authorDictionary = new Dictionary<string, Author>();
         private ObservableCollection<BookSku> bookSkus = new ObservableCollection<BookSku>();
-        #endregion fields
 
-        #region properties
-        public ObservableCollection<BookSku> BookSkus { get { return this.bookSkus; } }
-        public string Name { get; set; }
-        #endregion properties
+        #region Constructors
 
-        #region constructors
         public Author(string name) {
             this.Name = name;
             Author.authorDictionary.Add(this.Name, this);
         }
-        #endregion constructors
 
-        #region methods
+        #endregion
+
+        
+        #region Properties
+
+        public ObservableCollection<BookSku> BookSkus {
+            get { return this.bookSkus; }
+        }
+
+        public string Name {
+            get;
+            set;
+        }
+
+        public IEnumerator<BookSku> GetEnumerator() {
+            return this.BookSkus.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+            return this.BookSkus.GetEnumerator();
+        }
+
+        #endregion
+
+
+        #region Methods
+
         internal static Author GetAuthorByName(string name) {
             Author author;
             Author.authorDictionary.TryGetValue(name, out author);
@@ -34,18 +54,7 @@ namespace ItemsControlTester.Models {
         public void AddBookSku(BookSku bookSku) {
             this.BookSkus.Add(bookSku);
         }
-        #endregion methods
 
-        #region IEnumerable<BookSku>
-        public IEnumerator<BookSku> GetEnumerator() {
-            return this.BookSkus.GetEnumerator();
-        }
-        #endregion IEnumerable<BookSku>
-
-        #region IEnumerable
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
-            return this.BookSkus.GetEnumerator();
-        }
-        #endregion IEnumerable
+        #endregion
     }
 }

@@ -122,7 +122,7 @@
     <Compile Include="Events\BackgroundSubscriber.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\BookSku.cs" />
-    <Compile Include="Models\DataSource.cs" />
+    <Compile Include="Services\DataSource.cs" />
     <Compile Include="Models\Feed.cs" />
     <Compile Include="NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
