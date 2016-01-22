@@ -47,6 +47,13 @@ namespace ItemsControlTester {
                     DestPage = typeof(GridView2Page),
                     PageToken = "GridView2"
                 },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.OutlineStar,
+                    Label = "GridView3",
+                    DestPage = typeof(GridView3Page),
+                    PageToken = "GridView3"
+                },
             });
 
         public static AppShell Current = null;

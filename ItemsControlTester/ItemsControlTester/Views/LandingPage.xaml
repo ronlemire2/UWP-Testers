@@ -24,8 +24,9 @@
 
         <ScrollViewer Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True" Margin="12,4,0,0">
             <StackPanel >
-                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8"> GridView1 - GridViewOnly</TextBlock>
-                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8"> GridView2 - GridView with SemanticZoom</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8"> GridView1 - GridViewOnly, CollectionViewSource</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8"> GridView2 - GridView with SemanticZoom, CollectionViewSource</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8"> GridView3 - GridView to ListView, AdaptiveTrigger, SemanticZoom</TextBlock>
             </StackPanel>
         </ScrollViewer>
     </Grid>
