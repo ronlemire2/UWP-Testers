@@ -9,39 +9,10 @@
     mc:Ignorable="d"
     mvvm:ViewModelLocator.AutoWireViewModel="True">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <!-- Command Bar -->
-        <!-- IconList: https://msdn.microsoft.com/EN-US/library/windows/apps/windows.ui.xaml.controls.symbol.aspx -->
-        <!-- CustomIcon: http://stackoverflow.com/questions/23984390/how-to-set-custom-app-bar-button-icons-in-windows-8-->
-        <CommandBar x:Name="commandBar" 
-                    Grid.Row="0"
-                    Margin="15"
-                    VerticalAlignment="Top" 
-                    HorizontalContentAlignment="Stretch">
-            <AppBarButton Icon="Add" Label="Create" Command="{Binding CreateCommand}"/>
-            <AppBarButton Icon="Edit" Label="Read"  Command="{Binding ReadCommand}"/>
-            <AppBarButton Icon="Save" Label="Write" Command="{Binding WriteCommand}"/>
-            <AppBarButton Icon="Remove" Label="Delete" Command="{Binding DeleteCommand}"/>
-        </CommandBar>
-
-        <!-- Reminder -->
-        <TextBlock Grid.Row="1"
-                   Margin="0,15,0,15"
-                   Text="Reminder: Project data needs BuildAction=Content, CopyToOutputDirectory=CopyAlways"
-                   TextWrapping="WrapWholeWords"
-                   HorizontalAlignment="Center"
-                   FontSize="14"
-                   FontWeight="Bold" />
-
-        <!-- Results -->
-        <TextBlock Grid.Row="2"
-                   Margin="15"
-                   Text="{Binding Results, Mode=TwoWay}" />
-    </Grid>
+    <local:DataOperationsUC VerticalAlignment="Top"
+                            CreateCommand="{Binding CreateCommand, Mode=TwoWay}"
+                            ReadCommand="{Binding ReadCommand, Mode=TwoWay}"
+                            WriteCommand="{Binding WriteCommand, Mode=TwoWay}"
+                            DeleteCommand="{Binding DeleteCommand, Mode=TwoWay}"
+                            Results="{Binding Results, Mode=TwoWay}"/>
 </Page>

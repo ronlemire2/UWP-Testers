@@ -47,6 +47,20 @@ namespace AsyncTester {
                     DestPage = typeof(ProjectDataPage),
                     PageToken = "ProjectData"
                 },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.Contact,
+                    Label = "Local Data",
+                    DestPage = typeof(LocalDataPage),
+                    PageToken = "LocalData"
+                },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.Contact,
+                    Label = "Local Data Picker",
+                    DestPage = typeof(LocalDataPickerPage),
+                    PageToken = "LocalDataPicker"
+                },
             });
 
         public static AppShell Current = null;

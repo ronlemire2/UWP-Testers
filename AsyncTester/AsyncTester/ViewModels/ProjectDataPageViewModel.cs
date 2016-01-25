@@ -4,6 +4,7 @@ using Prism.Commands;
 using Prism.Windows.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,7 @@ using Windows.Data.Json;
 using Windows.UI.Popups;
 
 namespace AsyncTester.ViewModels {
-    public class ProjectDataPageViewModel : ViewModelBase {
-        public DelegateCommand CreateCommand { get; set; }
-        public DelegateCommand ReadCommand { get; set; }
-        public DelegateCommand WriteCommand { get; set; }
-        public DelegateCommand DeleteCommand { get; set; }
-
+    public class ProjectDataPageViewModel : DataOperationsViewModelBase {
         #region Constructors
 
         public ProjectDataPageViewModel() {
@@ -24,30 +20,10 @@ namespace AsyncTester.ViewModels {
             ReadCommand = new DelegateCommand(ExecuteReadCommand, CanExecuteReadCommand);
             WriteCommand = new DelegateCommand(ExecuteWriteCommand, CanExecuteWriteCommand);
             DeleteCommand = new DelegateCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-
         }
 
         #endregion
 
-        #region Properties
-
-        private List<Planet> planets;
-        public List<Planet> Planets {
-            get { return planets; }
-            set {
-                SetProperty<List<Planet>>(ref planets, value);
-            }
-        }
-
-        private string results;
-        public string Results {
-            get { return results; }
-            set {
-                SetProperty<string>(ref results, value);
-            }
-        }
-
-        #endregion
 
         #region Commands
 
@@ -57,12 +33,19 @@ namespace AsyncTester.ViewModels {
             Planets = new List<Planet>();
 
             try {
+                // This code from: http://blog.jerrynixon.com/2012/06/windows-8-how-to-read-files-in-winrt.html does not work.
+                // Error: "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)"
+                //var folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+                //folder = await folder.GetFolderAsync("\\Assets\\Data");
+                //var file = await folder.GetFileAsync("planets.json");
+                //var data = await Windows.Storage.FileIO.ReadTextAsync(file);
+
                 // http://stackoverflow.com/questions/21500336/how-to-get-file-in-winrt-from-project-path
                 var uri = new System.Uri("ms-appx:///Assets/Data/planets.json");
-                var planetsJsonFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri);
-                var planetsJsonData = await Windows.Storage.FileIO.ReadTextAsync(planetsJsonFile);
+                var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri);
+                var data = await Windows.Storage.FileIO.ReadTextAsync(file);
 
-                JsonObject jsonObject = JsonObject.Parse(planetsJsonData);
+                JsonObject jsonObject = JsonObject.Parse(data);
                 JsonArray jsonArray = jsonObject["Planets"].GetArray();
 
                 Planet planet;
@@ -121,24 +104,6 @@ namespace AsyncTester.ViewModels {
             return true;
         }
 
-        private async void InvalidOperation(string operation) {
-            // Apps don't have write access to their installed directory
-            // https://social.msdn.microsoft.com/Forums/en-US/a32d16fd-7855-4fce-9091-8067f712a1b6/access-denied-on-windowsstoragefileiowritetextasync-to-write-a-text-file-in-a-local-application?forum=winappswithhtml5
-            MessageDialog msgDialog = new MessageDialog(string.Format("Invalid Operation: {0} Project Data", operation),
-                "Apps don't have write access to their installed directory");
-            await msgDialog.ShowAsync();
-        }
-
-        private string BuildResults(List<Planet> planets) {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (Planet planet in planets) {
-                sb.Append(string.Format("Name: {0}", planet.Name));
-                sb.AppendLine();
-            }
-
-            return sb.ToString();
-        }
 
         #endregion
     }
