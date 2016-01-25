@@ -24,7 +24,8 @@
 
         <ScrollViewer Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True" Margin="12,4,0,0">
             <StackPanel >
-                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">ProgressAndCancel -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Progress And Cancel -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Project Data -</TextBlock>
             </StackPanel>
         </ScrollViewer>
     </Grid>

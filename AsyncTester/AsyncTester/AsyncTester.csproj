@@ -90,6 +90,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Assets\Data\planets_0.json" />
+    <Content Include="Assets\Data\planets.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -119,15 +123,22 @@
     <Compile Include="Converters\StringToDecimalConverter.cs" />
     <Compile Include="Converters\TextToHeaderVisibilityConverter.cs" />
     <Compile Include="Events\BackgroundSubscriber.cs" />
+    <Compile Include="Models\Planet.cs" />
     <Compile Include="NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IPlanetRepository.cs" />
+    <Compile Include="Services\PlanetRepository.cs" />
     <Compile Include="ViewModels\LandingPageViewModel.cs" />
     <Compile Include="ViewModels\ProgressAndCancelPageViewModel.cs" />
+    <Compile Include="ViewModels\ProjectDataPageViewModel.cs" />
     <Compile Include="Views\LandingPage.xaml.cs">
       <DependentUpon>LandingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProgressAndCancelPage.xaml.cs">
       <DependentUpon>ProgressAndCancelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectDataPage.xaml.cs">
+      <DependentUpon>ProjectDataPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -155,8 +166,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
     <Folder Include="Strings\en-US\" />
     <Folder Include="Styles\" />
   </ItemGroup>
@@ -182,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProgressAndCancelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

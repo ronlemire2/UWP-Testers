@@ -36,9 +36,16 @@ namespace AsyncTester {
                 new NavMenuItem()
                 {
                     Symbol = Symbol.Contact,
-                    Label = "ProgressAndCancel",
+                    Label = "Progress And Cancel",
                     DestPage = typeof(ProgressAndCancelPage),
                     PageToken = "ProgressAndCancel"
+                },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.Contact,
+                    Label = "Project Data",
+                    DestPage = typeof(ProjectDataPage),
+                    PageToken = "ProjectData"
                 },
             });
 
