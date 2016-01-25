@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,7 +36,15 @@ namespace DialogsTester.Views {
             ((SearchParametersViewModel)dialog.DataContext).StateProvinceCode = StateProvinceCodeIn.Text;
 
             // Show dialog and enter values.
-            await dialog.ShowAsync();
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary) {
+                MessageDialog msgDialog = new MessageDialog("OK Pressed");
+                await msgDialog.ShowAsync();
+            }
+            else {
+                MessageDialog msgDialog = new MessageDialog("Cancel Pressed");
+                await msgDialog.ShowAsync();
+            }
 
             // Viewmodel now has Out values.
             FirstNameOut.Text = ((SearchParametersViewModel)dialog.DataContext).FirstName;
