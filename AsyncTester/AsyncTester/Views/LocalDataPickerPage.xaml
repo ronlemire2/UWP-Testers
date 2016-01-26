@@ -9,7 +9,11 @@
     mc:Ignorable="d"
     mvvm:ViewModelLocator.AutoWireViewModel="True">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    <local:DataOperationsUC VerticalAlignment="Top"
+                            CreateCommand="{Binding CreateCommand, Mode=TwoWay}"
+                            ReadCommand="{Binding ReadCommand, Mode=TwoWay}"
+                            WriteCommand="{Binding WriteCommand, Mode=TwoWay}"
+                            DeleteCommand="{Binding DeleteCommand, Mode=TwoWay}"
+                            Instructions="{Binding Instructions, Mode=TwoWay}"
+                            Results="{Binding Results, Mode=TwoWay}"/>
 </Page>

@@ -54,8 +54,10 @@ namespace AsyncTester.ViewModels {
                 var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
                 var file = await folder.CreateFileAsync("planets.json", option);
+                var data = await Windows.Storage.FileIO.ReadTextAsync(file);
+                Planets = planetRepository.JsonToPlanets(data);
 
-                Planet planet = Planets[1];
+                Planet planet = Planets.Where(p => p.Name == "Earth" || p.Name == "Zoltan").FirstOrDefault();
                 planet.Name = planet.Name == "Earth" ? "Zoltan" : "Earth";
 
                 var json = planetRepository.PlanetsToJson(Planets);
@@ -70,18 +72,36 @@ namespace AsyncTester.ViewModels {
         }
 
         // Create
-        private void ExecuteCreateCommand() {
-            Results = string.Empty;
-            InvalidOperation("Create");
+        private async void ExecuteCreateCommand() {
+            try {
+                var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
+                var file = await folder.CreateFileAsync("planets.json", option);
+
+                Planets = planetRepository.ReloadPlanets();
+
+                var json = planetRepository.PlanetsToJson(Planets);
+                await Windows.Storage.FileIO.WriteTextAsync(file, json);
+            }
+            catch (Exception x) {
+                Results = x.Message;
+            }
+
         }
         private bool CanExecuteCreateCommand() {
             return true;
         }
 
         // Delete
-        private void ExecuteDeleteCommand() {
-            Results = string.Empty;
-            InvalidOperation("Delete");
+        private async void ExecuteDeleteCommand() {
+            try {
+                var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                var file = await folder.GetFileAsync("planets.json");
+                await file.DeleteAsync(Windows.Storage.StorageDeleteOption.PermanentDelete);
+            }
+            catch (Exception x) {
+                Results = x.Message;
+            }
         }
         private bool CanExecuteDeleteCommand() {
             return true;
