@@ -3,6 +3,7 @@
 **AsyncTester**
 
 1. Progress and Cancel
+2. DataOperations - ProjectData (Read), LocalData (Read/Write), LocalData with Picker (Read/Write)
 
 
 **AdaptiveTester**
