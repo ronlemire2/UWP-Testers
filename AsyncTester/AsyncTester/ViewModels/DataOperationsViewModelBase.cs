@@ -1,4 +1,5 @@
 ﻿using AsyncTester.Models;
+using AsyncTester.Services;
 using Prism.Commands;
 using Prism.Windows.Mvvm;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace AsyncTester.ViewModels {
     public class DataOperationsViewModelBase : ViewModelBase {
+        protected IPlanetRepository planetRepository;
         public DelegateCommand CreateCommand { get; set; }
         public DelegateCommand ReadCommand { get; set; }
         public DelegateCommand WriteCommand { get; set; }
@@ -16,8 +18,8 @@ namespace AsyncTester.ViewModels {
 
         #region Constructors
 
-        public DataOperationsViewModelBase() {
-
+        public DataOperationsViewModelBase(IPlanetRepository planetRepository) {
+            this.planetRepository = planetRepository;
         }
 
         #endregion
@@ -29,6 +31,14 @@ namespace AsyncTester.ViewModels {
             get { return planets; }
             set {
                 SetProperty<List<Planet>>(ref planets, value);
+            }
+        }
+
+        private string instructions;
+        public string Instructions {
+            get { return instructions; }
+            set {
+                SetProperty<string>(ref instructions, value);
             }
         }
 

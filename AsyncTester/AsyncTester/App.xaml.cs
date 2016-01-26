@@ -20,6 +20,7 @@ using Prism.Windows.AppModel;
 using Windows.ApplicationModel.Resources;
 using AsyncTester.Views;
 using Windows.UI.Core;
+using AsyncTester.Services;
 
 namespace AsyncTester {
     /// <summary>
@@ -89,7 +90,7 @@ namespace AsyncTester {
 
         protected override void ConfigureContainer() {
             base.ConfigureContainer();
-            //RegisterTypeIfMissing(typeof(IFakeService), typeof(FakeService), true);
+            RegisterTypeIfMissing(typeof(IPlanetRepository), typeof(PlanetRepository), true);
         }
     }
 }

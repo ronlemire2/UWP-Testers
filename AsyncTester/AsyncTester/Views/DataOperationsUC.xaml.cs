@@ -74,6 +74,19 @@ namespace AsyncTester.Views {
 
         #endregion
 
+        #region Instructions DP
+
+        public string Instructions {
+            get { return (string)GetValue(InstructionsProperty); }
+            set { SetValue(InstructionsProperty, value); }
+        }
+
+        public static readonly DependencyProperty InstructionsProperty =
+            DependencyProperty.Register("Instructions", typeof(string),
+                typeof(DataOperationsUC), new PropertyMetadata(""));
+
+        #endregion
+
         #region Results DP
 
         public string Results {

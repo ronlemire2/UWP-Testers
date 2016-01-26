@@ -1,4 +1,5 @@
 ﻿using AsyncTester.Models;
+using AsyncTester.Services;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Windows.Mvvm;
@@ -15,11 +16,12 @@ namespace AsyncTester.ViewModels {
     public class ProjectDataPageViewModel : DataOperationsViewModelBase {
         #region Constructors
 
-        public ProjectDataPageViewModel() {
+        public ProjectDataPageViewModel(IPlanetRepository planetRepository) : base(planetRepository) {
             CreateCommand = new DelegateCommand(ExecuteCreateCommand, CanExecuteCreateCommand);
             ReadCommand = new DelegateCommand(ExecuteReadCommand, CanExecuteReadCommand);
             WriteCommand = new DelegateCommand(ExecuteWriteCommand, CanExecuteWriteCommand);
             DeleteCommand = new DelegateCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            Instructions = "Reminder: Project data needs BuildAction=Content, CopyToOutputDirectory=CopyAlways";
         }
 
         #endregion
@@ -45,27 +47,7 @@ namespace AsyncTester.ViewModels {
                 var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri);
                 var data = await Windows.Storage.FileIO.ReadTextAsync(file);
 
-                JsonObject jsonObject = JsonObject.Parse(data);
-                JsonArray jsonArray = jsonObject["Planets"].GetArray();
-
-                Planet planet;
-                foreach (JsonValue planetElement in jsonArray) {
-                    JsonObject planetObject = planetElement.GetObject();
-                    planet = new Planet {
-                        Id = int.Parse(planetObject["Id"].GetString()),
-                        Name = planetObject["Name"].GetString(),
-                        ImagePath = planetObject["ImagePath"].GetString(),
-                        Mass = planetObject["Mass"].GetString(),
-                        Diameter = planetObject["Diameter"].GetString(),
-                        Gravity = planetObject["Gravity"].GetString(),
-                        LengthOfDay = planetObject["LengthOfDay"].GetString(),
-                        DistanceFromSun = planetObject["DistanceFromSun"].GetString(),
-                        OrbitalPeriod = planetObject["OrbitalPeriod"].GetString(),
-                        MeanTemperature = planetObject["MeanTemperature"].GetString(),
-                        NumberOfMoons = planetObject["NumberOfMoons"].GetString()
-                    };
-                    Planets.Add(planet);
-                }
+                Planets = planetRepository.JsonToPlanets(data);
                 Results = BuildResults(Planets);
 
             }
@@ -103,7 +85,6 @@ namespace AsyncTester.ViewModels {
         private bool CanExecuteDeleteCommand() {
             return true;
         }
-
 
         #endregion
     }

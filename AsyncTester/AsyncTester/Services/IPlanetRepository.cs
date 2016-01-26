@@ -13,5 +13,7 @@ namespace AsyncTester.Services {
         int CreatePlanet(Planet planet);
         int UpdatePlanet(Planet planet);
         bool DeletePlanet(int id);
+        List<Planet> JsonToPlanets(string json);
+        string PlanetsToJson(List<Planet> planets);
     }
 }

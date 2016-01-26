@@ -14,5 +14,6 @@
                             ReadCommand="{Binding ReadCommand, Mode=TwoWay}"
                             WriteCommand="{Binding WriteCommand, Mode=TwoWay}"
                             DeleteCommand="{Binding DeleteCommand, Mode=TwoWay}"
+                            Instructions="{Binding Instructions, Mode=TwoWay}"
                             Results="{Binding Results, Mode=TwoWay}"/>
 </Page>

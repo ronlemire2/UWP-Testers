@@ -1,9 +1,11 @@
 ﻿using AsyncTester.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Json;
 
 namespace AsyncTester.Services {
     public class PlanetRepository : IPlanetRepository {
@@ -100,6 +102,17 @@ namespace AsyncTester.Services {
                     DistanceFromSun = "5906.4", OrbitalPeriod = "90560", MeanTemperature = "-225", NumberOfMoons = "5" },
             };
             return Planets;
+        }
+
+        public List<Planet> JsonToPlanets(string json) {
+            List<Planet> planets = new List<Planet>();
+            planets = JsonConvert.DeserializeObject<List<Planet>>(json);
+            return planets;
+        }
+
+        public string PlanetsToJson(List<Planet> planets) {
+            string json = JsonConvert.SerializeObject(planets,Formatting.Indented);
+            return json;
         }
     }
 }

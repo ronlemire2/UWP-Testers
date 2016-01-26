@@ -33,7 +33,7 @@
         <!-- Reminder -->
         <TextBlock Grid.Row="1"
                    Margin="0,15,0,15"
-                   Text="Reminder: Project data needs BuildAction=Content, CopyToOutputDirectory=CopyAlways"
+                   Text="{Binding Instructions}"
                    TextWrapping="WrapWholeWords"
                    HorizontalAlignment="Center"
                    FontSize="14"
