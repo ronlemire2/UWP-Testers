@@ -45,6 +45,14 @@
                     Content="Delete File"
                     Margin="10,0,0,0"
                     Command="{Binding DeleteFileCommand}" />
+            <Button x:Name="backup" 
+                    Content="Backup File"
+                    Margin="10,0,0,0"
+                    Command="{Binding BackupFileCommand}" />
+            <Button x:Name="restore" 
+                    Content="Restore File"
+                    Margin="10,0,0,0"
+                    Command="{Binding RestoreFileCommand}" />
         </StackPanel>
 
         <!-- Planets ListView-->

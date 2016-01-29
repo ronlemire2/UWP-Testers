@@ -51,5 +51,34 @@ namespace AsyncTester.Services {
             await file.DeleteAsync(Windows.Storage.StorageDeleteOption.PermanentDelete);
         }
 
+        public async Task<bool> BackupJson(string json) {
+            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+            savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            savePicker.FileTypeChoices.Add("Json", new List<string>() { ".json" });
+            savePicker.SuggestedFileName = "PlanetsBackup";
+            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null) {
+                await Windows.Storage.FileIO.WriteTextAsync(file, json);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public async Task<string> RestoreJson() {
+            string json = string.Empty;
+
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            picker.FileTypeFilter.Add(".json");
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null) {
+                json = await Windows.Storage.FileIO.ReadTextAsync(file);
+            }
+
+            return json;
+        }
     }
 }

@@ -24,6 +24,8 @@ namespace AsyncTester.ViewModels {
         public DelegateCommand EditCommand { get; set; }
         public DelegateCommand DeleteCommand { get; set; }
         public DelegateCommand DeleteFileCommand { get; set; }
+        public DelegateCommand BackupFileCommand { get; set; }
+        public DelegateCommand RestoreFileCommand { get; set; }
 
         #region Constructors
 
@@ -36,6 +38,8 @@ namespace AsyncTester.ViewModels {
             EditCommand = new DelegateCommand(ExecuteEditCommand, CanExecuteEditCommand);
             DeleteCommand = new DelegateCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             DeleteFileCommand = new DelegateCommand(ExecuteDeleteFileCommand, CanExecuteDeleteFileCommand);
+            BackupFileCommand = new DelegateCommand(ExecuteBackupFileCommand, CanExecuteBackupFileCommand);
+            RestoreFileCommand = new DelegateCommand(ExecuteRestoreFileCommand, CanExecuteRestoreFileCommand);
         }
 
         public override void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState) {
@@ -83,7 +87,7 @@ namespace AsyncTester.ViewModels {
             try {
                 List<Planet> planets = new List<Planet>();
                 var json = planetRepository.PlanetsToJson(planets);
-                jsonFileService.AddJsonObject(JSON_FILENAME, json);
+                jsonFileService.CreateJsonFile(JSON_FILENAME, json);
             }
             catch (Exception x) {
                 Results = x.Message;
@@ -215,6 +219,38 @@ namespace AsyncTester.ViewModels {
 
         }
         private bool CanExecuteDeleteFileCommand() {
+            return true;
+        }
+
+        /// <summary>
+        /// Delete planets.json file in Local Data folder
+        /// </summary>
+        private async void ExecuteBackupFileCommand() {
+            string errMsg = string.Empty;
+            bool success = false;
+            try {
+                string json = await jsonFileService.ReadAllJsonObjects(JSON_FILENAME);
+                success = await jsonFileService.BackupJson(json);
+            }
+            catch (Exception x) {
+                errMsg = x.Message;
+            }
+            finally {
+                Results = errMsg == string.Empty ? success.ToString() : errMsg;
+            }
+        }
+        private bool CanExecuteBackupFileCommand() {
+            return true;
+        }
+
+        /// <summary>
+        /// Delete planets.json file in Local Data folder
+        /// </summary>
+        private async void ExecuteRestoreFileCommand() {
+            string json = await jsonFileService.RestoreJson();
+            jsonFileService.CreateJsonFile(JSON_FILENAME, json);
+        }
+        private bool CanExecuteRestoreFileCommand() {
             return true;
         }
 

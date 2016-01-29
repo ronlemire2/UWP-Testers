@@ -13,5 +13,7 @@ namespace AsyncTester.Services {
         void EditJsonObject(string fileName, string json);
         void DeleteJsonObject(string fileName, string json);
         void DeleteJsonFile(string fileName);
+        Task<bool> BackupJson(string json);
+        Task<string> RestoreJson();
     }
 }
