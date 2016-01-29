@@ -19,6 +19,7 @@ namespace AsyncTester.Views {
     public sealed partial class LocalDataUC : UserControl {
         public LocalDataUC() {
             this.InitializeComponent();
+            this.Loaded += new RoutedEventHandler(LocalDataUC_Loaded);
         }
 
         // Id property
@@ -109,6 +110,39 @@ namespace AsyncTester.Views {
         public static readonly DependencyProperty NumberOfMoonsProperty =
             DependencyProperty.Register("NumberOfMoons", typeof(string), typeof(LocalDataUC), new PropertyMetadata(""));
 
+        // ErrorsText property
+        public string ErrorsText {
+            get { return (string)GetValue(ErrorsTextProperty); }
+            set { SetValue(ErrorsTextProperty, value); }
+        }
+        public static readonly DependencyProperty ErrorsTextProperty =
+            DependencyProperty.Register("ErrorsText", typeof(string), typeof(LocalDataUC), new PropertyMetadata(""));
+
+        // http://stackoverflow.com/questions/10051226/how-to-set-isreadonly-isenabled-on-entire-container-like-panel-or-groupbox-usi
+        // TextBoxesAreEnabled property
+        public bool TextBoxesAreEnabled {
+            get { return (bool)GetValue(TextBoxesAreEnabledProperty); }
+            set { SetValue(TextBoxesAreEnabledProperty, value); }
+        }
+        public static readonly DependencyProperty TextBoxesAreEnabledProperty =
+            DependencyProperty.Register("TextBoxesAreEnabled", typeof(bool), typeof(LocalDataUC), new PropertyMetadata(false));
+
+        void LocalDataUC_Loaded(object sender, RoutedEventArgs e) {
+            this.SetIsEnabledOfChildren();
+        }
+
+        private void SetIsEnabledOfChildren() {
+            foreach (object o in leftStackPanel.Children) {
+                if (o is TextBox) {
+                    ((TextBox)o).IsEnabled = TextBoxesAreEnabled;
+                }
+            }
+            foreach (object o in rightStackPanel.Children) {
+                if (o is TextBox) {
+                    ((TextBox)o).IsEnabled = TextBoxesAreEnabled;
+                }
+            }
+        }
 
     }
 }

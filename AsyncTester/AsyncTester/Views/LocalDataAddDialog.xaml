@@ -12,61 +12,6 @@
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick" MinWidth="850">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="400" />
-            <ColumnDefinition Width="Auto" MinWidth="400" />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <TextBox Name="idTextBox" 
-                 Header="Id:"
-                 Text="{Binding Id, Mode=TwoWay}"/>
-
-            <TextBox Name="nameTextBox" 
-                 Header="Name:"
-                 Text="{Binding Name, Mode=TwoWay}"/>
-
-            <TextBox Name="imagePathTextBox" 
-                 Header="ImagePath:"
-                 Text="{Binding ImagePath, Mode=TwoWay}"/>
-
-            <TextBox Name="massTextBox" 
-                 Header="Mass:"
-                 Text="{Binding Mass, Mode=TwoWay}"/>
-
-            <TextBox Name="diameterTextBox" 
-                 Header="Diameter:"
-                 Text="{Binding Diameter, Mode=TwoWay}"/>
-
-            <TextBox Name="gravityTextBox" 
-                 Header="Gravity:"
-                 Text="{Binding Gravity, Mode=TwoWay}"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1"
-                    Margin="20,0,0,0">
-            <TextBox Name="lengthOfDayTextBox" 
-                 Header="LengthOfDay:"
-                 Text="{Binding LengthOfDay, Mode=TwoWay}"/>
-
-            <TextBox Name="DistanceFromSunTextBox" 
-                 Header="DistanceFromSun:"
-                 Text="{Binding DistanceFromTheSum, Mode=TwoWay}"/>
-
-            <TextBox Name="orbitalPeriodTextBox" 
-                 Header="Notes:"
-                 Text="{Binding OrbitalPeriod, Mode=TwoWay}"/>
-
-            <TextBox Name="meanTemperatureTextBox" 
-                 Header="MeanTemperature:"
-                 Text="{Binding MeanTemperature, Mode=TwoWay}"/>
-
-            <TextBox Name="numberOfMoonsTextBox" 
-                 Header="NumberOfMoons:"
-                 Text="{Binding NumberOfMoons, Mode=TwoWay}"/>
-
-            <TextBlock x:Name="errorTextBlock"
-                   Text="{Binding ErrorText}"/>
-
-        </StackPanel>
-    </Grid>
+    <local:LocalDataUC 
+        TextBoxesAreEnabled="{Binding TextBoxesAreEnabled, Mode=TwoWay}"/>
 </ContentDialog>

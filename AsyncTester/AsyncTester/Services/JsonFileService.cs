@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace AsyncTester.Services {
     public class JsonFileService : IJsonFileService {
+
+        public async Task<bool> FileExists(string fileName) {
+            var exists = await ApplicationData.Current.LocalFolder.TryGetItemAsync(fileName);
+            return exists != null ? true : false;
+        }
+
         public async void CreateJsonFile(string fileName, string json) {
             var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
             var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
@@ -80,5 +87,6 @@ namespace AsyncTester.Services {
 
             return json;
         }
+
     }
 }

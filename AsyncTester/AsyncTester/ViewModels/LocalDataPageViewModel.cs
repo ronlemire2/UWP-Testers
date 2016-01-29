@@ -18,6 +18,7 @@ namespace AsyncTester.ViewModels {
         const string JSON_FILENAME = "planets.json";
         protected IPlanetRepository planetRepository;
         protected IJsonFileService jsonFileService;
+        public DelegateCommand FileExistsCommand { get; set; }
         public DelegateCommand CreateFileCommand { get; set; }
         public DelegateCommand AddCommand { get; set; }
         public DelegateCommand ReadCommand { get; set; }
@@ -32,6 +33,7 @@ namespace AsyncTester.ViewModels {
         public LocalDataPageViewModel(IPlanetRepository planetRepository, IJsonFileService jsonFileService) {
             this.planetRepository = planetRepository;
             this.jsonFileService = jsonFileService;
+            FileExistsCommand = new DelegateCommand(ExecuteFileExistsCommand, CanExecuteFileExistsCommand);
             CreateFileCommand = new DelegateCommand(ExecuteCreateFileCommand, CanExecuteCreateFileCommand);
             AddCommand = new DelegateCommand(ExecuteAddCommand, CanExecuteAddCommand);
             ReadCommand = new DelegateCommand(ExecuteReadCommand, CanExecuteReadCommand);
@@ -81,6 +83,22 @@ namespace AsyncTester.ViewModels {
 
 
         /// <summary>
+        /// Check if File Exists
+        /// </summary>
+        private async void ExecuteFileExistsCommand() {
+            try {
+                bool exists = await jsonFileService.FileExists(JSON_FILENAME);
+                Results = exists == true ? "Exists" : "Does not Exist";
+            }
+            catch (Exception x) {
+                Results = x.Message;
+            }
+        }
+        private bool CanExecuteFileExistsCommand() {
+            return true;
+        }
+
+        /// <summary>
         /// Create an empty planets.json file in Local Data folder
         /// </summary>
         private void ExecuteCreateFileCommand() {
@@ -103,6 +121,7 @@ namespace AsyncTester.ViewModels {
         private async void ExecuteAddCommand() {
             SelectedPlanetVM = new PlanetViewModel();
             LocalDataAddDialog addDialog = new LocalDataAddDialog();
+            this.SelectedPlanetVM.TextBoxesAreEnabled = true;
             addDialog.DataContext = this.SelectedPlanetVM;
             try {
                 var result = await addDialog.ShowAsync();
@@ -152,6 +171,7 @@ namespace AsyncTester.ViewModels {
         private async void ExecuteEditCommand() {
             try {
                 LocalDataEditDialog editDialog = new LocalDataEditDialog();
+                this.SelectedPlanetVM.TextBoxesAreEnabled = true;
                 editDialog.DataContext = this.SelectedPlanetVM;
                 var result = await editDialog.ShowAsync();
                 if (result == Windows.UI.Xaml.Controls.ContentDialogResult.Primary) {
@@ -175,6 +195,7 @@ namespace AsyncTester.ViewModels {
         private async void ExecuteDeleteCommand() {
             try {
                 LocalDataDeleteDialog deleteDialog = new LocalDataDeleteDialog();
+                this.SelectedPlanetVM.TextBoxesAreEnabled = false;
                 deleteDialog.DataContext = this.SelectedPlanetVM;
                 var result = await deleteDialog.ShowAsync();
                 if (result == Windows.UI.Xaml.Controls.ContentDialogResult.Primary) {

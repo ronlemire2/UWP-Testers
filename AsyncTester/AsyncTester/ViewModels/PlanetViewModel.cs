@@ -82,5 +82,11 @@ namespace AsyncTester.ViewModels {
                 return new BitmapImage(new Uri(new Uri("ms-appdata:///local/"), this.ImagePath));
             }
         }
+
+        private bool textBoxesAreEnabled;
+        public bool TextBoxesAreEnabled {
+            get { return textBoxesAreEnabled; }
+            set { SetProperty<bool>(ref textBoxesAreEnabled, value); }
+        }
     }
 }

@@ -13,34 +13,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!-- File Operations -->
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
-                    Margin="15"
+                    Margin="15,10,0,0"
                     VerticalAlignment="Top" 
-                    HorizontalAlignment="Stretch">
+                    HorizontalAlignment="Left">
+            <Button x:Name="fileExists" 
+                    Content="File Exists"
+                    Margin="10,0,0,0"
+                    Command="{Binding FileExistsCommand}" />
             <Button x:Name="createFile" 
                     Content="Create File"
                     Margin="10,0,0,0"
                     Command="{Binding CreateFileCommand}" />
-            <Button x:Name="add" 
-                    Content="Add Planet"
-                    Margin="10,0,0,0"
-                    Command="{Binding AddCommand}" />
-            <Button x:Name="read" 
-                    Content="Read All Planets"
-                    Margin="10,0,0,0"
-                    Command="{Binding ReadCommand}" />
-            <Button x:Name="edit" 
-                    Content="Edit Planet"
-                    Margin="10,0,0,0"
-                    Command="{Binding EditCommand}" />
-            <Button x:Name="delete" 
-                    Content="Delete Planet"
-                    Margin="10,0,0,0"
-                    Command="{Binding DeleteCommand}" />
             <Button x:Name="deleteFile" 
                     Content="Delete File"
                     Margin="10,0,0,0"
@@ -55,9 +45,33 @@
                     Command="{Binding RestoreFileCommand}" />
         </StackPanel>
 
+        <!-- Item Operations -->
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    Margin="15, 10,0,0"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Left">
+            <Button x:Name="read" 
+                    Content="Read All Planets"
+                    Margin="10,0,0,0"
+                    Command="{Binding ReadCommand}" />
+            <Button x:Name="add" 
+                    Content="Add Planet"
+                    Margin="10,0,0,0"
+                    Command="{Binding AddCommand}" />
+            <Button x:Name="edit" 
+                    Content="Edit Planet"
+                    Margin="10,0,0,0"
+                    Command="{Binding EditCommand}" />
+            <Button x:Name="delete" 
+                    Content="Delete Planet"
+                    Margin="10,0,0,0"
+                    Command="{Binding DeleteCommand}" />
+        </StackPanel>
+
         <!-- Planets ListView-->
         <ListView x:Name="listView"
-                 Grid.Row="1"
+                 Grid.Row="2"
                  HorizontalAlignment="Left"
                  Margin="15,0,0,0"
                  Height="500"
@@ -82,7 +96,7 @@
         </ListView>
 
         <!-- Results -->
-        <TextBlock Grid.Row="2"
+        <TextBlock Grid.Row="3"
                    Margin="15">
             Selected Planet: <Run Text="{Binding Results, Mode=TwoWay}" />
         </TextBlock>

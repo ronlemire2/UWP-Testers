@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsyncTester.Services {
     public interface IJsonFileService {
+        Task<bool> FileExists(string fileName);
         void CreateJsonFile(string fileName, string json);
         void AddJsonObject(string fileName, string json);
         Task<string> ReadAllJsonObjects(string fileName);
