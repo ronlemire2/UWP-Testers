@@ -90,7 +90,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Assets\Data\planets_0.json" />
     <Content Include="Assets\Data\planets.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -132,19 +131,32 @@
     <Compile Include="ViewModels\LandingPageViewModel.cs" />
     <Compile Include="ViewModels\LocalDataPageViewModel.cs" />
     <Compile Include="ViewModels\LocalDataPickerPageViewModel.cs" />
+    <Compile Include="ViewModels\PlanetViewModel.cs" />
     <Compile Include="ViewModels\ProgressAndCancelPageViewModel.cs" />
     <Compile Include="ViewModels\ProjectDataPageViewModel.cs" />
     <Compile Include="Views\DataOperationsUC.xaml.cs">
       <DependentUpon>DataOperationsUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LocalDataAddDialog.xaml.cs">
+      <DependentUpon>LocalDataAddDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LandingPage.xaml.cs">
       <DependentUpon>LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocalDataDeleteDialog.xaml.cs">
+      <DependentUpon>LocalDataDeleteDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocalDataEditDialog.xaml.cs">
+      <DependentUpon>LocalDataEditDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LocalDataPage.xaml.cs">
       <DependentUpon>LocalDataPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LocalDataPickerPage.xaml.cs">
       <DependentUpon>LocalDataPickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocalDataUC.xaml.cs">
+      <DependentUpon>LocalDataUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProgressAndCancelPage.xaml.cs">
       <DependentUpon>ProgressAndCancelPage.xaml</DependentUpon>
@@ -202,7 +214,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LocalDataAddDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LocalDataDeleteDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LocalDataEditDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LocalDataPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LocalDataUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

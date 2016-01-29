@@ -9,11 +9,85 @@
     mc:Ignorable="d"
     mvvm:ViewModelLocator.AutoWireViewModel="True">
 
-    <local:DataOperationsUC VerticalAlignment="Top"
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    Margin="15"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Stretch">
+            <Button x:Name="createFile" 
+                    Content="Create File"
+                    Margin="10,0,0,0"
+                    Command="{Binding CreateFileCommand}" />
+            <Button x:Name="add" 
+                    Content="Add Planet"
+                    Margin="10,0,0,0"
+                    Command="{Binding AddCommand}" />
+            <Button x:Name="read" 
+                    Content="Read All Planets"
+                    Margin="10,0,0,0"
+                    Command="{Binding ReadCommand}" />
+            <Button x:Name="edit" 
+                    Content="Edit Planet"
+                    Margin="10,0,0,0"
+                    Command="{Binding EditCommand}" />
+            <Button x:Name="delete" 
+                    Content="Delete Planet"
+                    Margin="10,0,0,0"
+                    Command="{Binding DeleteCommand}" />
+            <Button x:Name="deleteFile" 
+                    Content="Delete File"
+                    Margin="10,0,0,0"
+                    Command="{Binding DeleteFileCommand}" />
+        </StackPanel>
+
+        <!-- Planets ListView-->
+        <ListView x:Name="listView"
+                 Grid.Row="1"
+                 HorizontalAlignment="Left"
+                 Margin="15,0,0,0"
+                 Height="500"
+                 Width="200"
+                 ItemsSource="{Binding PlanetVMs, Mode=TwoWay}"
+                 SelectedItem="{Binding SelectedPlanetVM, Mode=TwoWay}"
+                 SelectionMode="Single"
+                 IsItemClickEnabled="True"
+                 IsSynchronizedWithCurrentItem="False" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <!-- Results -->
+        <TextBlock Grid.Row="2"
+                   Margin="15">
+            Selected Planet: <Run Text="{Binding Results, Mode=TwoWay}" />
+        </TextBlock>
+      
+    </Grid>
+</Page>
+
+
+<!--<local:DataOperationsUC VerticalAlignment="Top"
                             CreateCommand="{Binding CreateCommand, Mode=TwoWay}"
                             ReadCommand="{Binding ReadCommand, Mode=TwoWay}"
                             WriteCommand="{Binding WriteCommand, Mode=TwoWay}"
                             DeleteCommand="{Binding DeleteCommand, Mode=TwoWay}"
                             Instructions="{Binding Instructions, Mode=TwoWay}"
-                            Results="{Binding Results, Mode=TwoWay}"/>
-</Page>
+                            Results="{Binding Results, Mode=TwoWay}"/>-->
+
