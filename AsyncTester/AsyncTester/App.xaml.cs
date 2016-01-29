@@ -91,6 +91,7 @@ namespace AsyncTester {
         protected override void ConfigureContainer() {
             base.ConfigureContainer();
             RegisterTypeIfMissing(typeof(IPlanetRepository), typeof(PlanetRepository), true);
+            RegisterTypeIfMissing(typeof(IJsonFileService), typeof(JsonFileService), true);
         }
     }
 }

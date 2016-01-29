@@ -15,7 +15,9 @@ using Windows.UI.Popups;
 
 namespace AsyncTester.ViewModels {
     public class LocalDataPageViewModel : ViewModelBase {
+        const string JSON_FILENAME = "planets.json";
         protected IPlanetRepository planetRepository;
+        protected IJsonFileService jsonFileService;
         public DelegateCommand CreateFileCommand { get; set; }
         public DelegateCommand AddCommand { get; set; }
         public DelegateCommand ReadCommand { get; set; }
@@ -25,8 +27,9 @@ namespace AsyncTester.ViewModels {
 
         #region Constructors
 
-        public LocalDataPageViewModel(IPlanetRepository planetRepository) {
+        public LocalDataPageViewModel(IPlanetRepository planetRepository, IJsonFileService jsonFileService) {
             this.planetRepository = planetRepository;
+            this.jsonFileService = jsonFileService;
             CreateFileCommand = new DelegateCommand(ExecuteCreateFileCommand, CanExecuteCreateFileCommand);
             AddCommand = new DelegateCommand(ExecuteAddCommand, CanExecuteAddCommand);
             ReadCommand = new DelegateCommand(ExecuteReadCommand, CanExecuteReadCommand);
@@ -76,14 +79,11 @@ namespace AsyncTester.ViewModels {
         /// <summary>
         /// Create an empty planets.json file in Local Data folder
         /// </summary>
-        private async void ExecuteCreateFileCommand() {
+        private void ExecuteCreateFileCommand() {
             try {
-                var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
-                var file = await folder.CreateFileAsync("planets.json", option);
                 List<Planet> planets = new List<Planet>();
                 var json = planetRepository.PlanetsToJson(planets);
-                await Windows.Storage.FileIO.WriteTextAsync(file, json);
+                jsonFileService.AddJsonObject(JSON_FILENAME, json);
             }
             catch (Exception x) {
                 Results = x.Message;
@@ -107,12 +107,9 @@ namespace AsyncTester.ViewModels {
                         PlanetVMs = new ObservableCollection<PlanetViewModel>();
                     }
                     PlanetVMs.Add(SelectedPlanetVM);
-                    var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
-                    var file = await folder.CreateFileAsync("planets.json", option);
                     List<Planet> planets = MapViewModelsToPlanets(PlanetVMs.ToList());
                     var json = planetRepository.PlanetsToJson(planets);
-                    await Windows.Storage.FileIO.WriteTextAsync(file, json);
+                    jsonFileService.AddJsonObject(JSON_FILENAME, json);
                 }
                 else {
                     Results = "Operation canceled";
@@ -131,9 +128,7 @@ namespace AsyncTester.ViewModels {
         private async void ExecuteReadCommand() {
             Results = string.Empty;
             try {
-                var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                var file = await folder.GetFileAsync("planets.json");
-                var data = await Windows.Storage.FileIO.ReadTextAsync(file);
+                string data = await jsonFileService.ReadAllJsonObjects(JSON_FILENAME);
                 List<Planet> planets = planetRepository.JsonToPlanets(data);
                 PlanetVMs = new ObservableCollection<PlanetViewModel>(MapPlanetsToViewModels(planets));
                 SelectedPlanetVM = PlanetVMs[0];
@@ -156,12 +151,9 @@ namespace AsyncTester.ViewModels {
                 editDialog.DataContext = this.SelectedPlanetVM;
                 var result = await editDialog.ShowAsync();
                 if (result == Windows.UI.Xaml.Controls.ContentDialogResult.Primary) {
-                    var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
-                    var file = await folder.CreateFileAsync("planets.json", option);
                     List<Planet> planets = MapViewModelsToPlanets(PlanetVMs.ToList());
                     var json = planetRepository.PlanetsToJson(planets);
-                    await Windows.Storage.FileIO.WriteTextAsync(file, json);
+                    jsonFileService.EditJsonObject(JSON_FILENAME, json);
                 }
             }
             catch (Exception x) {
@@ -182,13 +174,10 @@ namespace AsyncTester.ViewModels {
                 deleteDialog.DataContext = this.SelectedPlanetVM;
                 var result = await deleteDialog.ShowAsync();
                 if (result == Windows.UI.Xaml.Controls.ContentDialogResult.Primary) {
-                    var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    var option = Windows.Storage.CreationCollisionOption.ReplaceExisting;
-                    var file = await folder.CreateFileAsync("planets.json", option);
                     PlanetVMs.Remove(SelectedPlanetVM);
                     List<Planet> planets = MapViewModelsToPlanets(PlanetVMs.ToList());
                     var json = planetRepository.PlanetsToJson(planets);
-                    await Windows.Storage.FileIO.WriteTextAsync(file, json);
+                    jsonFileService.DeleteJsonObject(JSON_FILENAME, json);
                 }
                 else {
                     Results = "Operation canceled";
@@ -213,9 +202,7 @@ namespace AsyncTester.ViewModels {
             var res = await dialog.ShowAsync();
             if ((int)res.Id == 1) {
                 try {
-                    var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    var file = await folder.GetFileAsync("planets.json");
-                    await file.DeleteAsync(Windows.Storage.StorageDeleteOption.PermanentDelete);
+                    jsonFileService.DeleteJsonFile(JSON_FILENAME);
                     PlanetVMs = null;
                 }
                 catch (Exception x) {
