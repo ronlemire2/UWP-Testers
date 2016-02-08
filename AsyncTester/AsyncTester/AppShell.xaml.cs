@@ -61,6 +61,13 @@ namespace AsyncTester {
                     DestPage = typeof(LocalDataPickerPage),
                     PageToken = "LocalDataPicker"
                 },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.Contact,
+                    Label = "LongRunning Task",
+                    DestPage = typeof(LongRunningTaskPage),
+                    PageToken = "LongRunningTask"
+                },
             });
 
         public static AppShell Current = null;

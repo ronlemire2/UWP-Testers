@@ -27,6 +27,7 @@
                 <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Progress And Cancel -</TextBlock>
                 <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Project Data -</TextBlock>
                 <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">Local Data -</TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Margin="12,8">LongRunning Task - Use non-ThreadPool Thread</TextBlock>
             </StackPanel>
         </ScrollViewer>
     </Grid>

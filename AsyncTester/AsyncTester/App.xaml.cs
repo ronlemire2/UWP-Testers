@@ -92,6 +92,8 @@ namespace AsyncTester {
             base.ConfigureContainer();
             RegisterTypeIfMissing(typeof(IPlanetRepository), typeof(PlanetRepository), true);
             RegisterTypeIfMissing(typeof(IJsonFileService), typeof(JsonFileService), true);
+            RegisterTypeIfMissing(typeof(INameGenerator), typeof(NameGenerator), true);
+            RegisterTypeIfMissing(typeof(ISimplePersonRepository), typeof(SimplePersonRepository), true);
         }
     }
 }
