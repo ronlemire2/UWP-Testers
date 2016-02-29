@@ -1,0 +1,55 @@
+﻿<Page x:Name="Observer"
+    x:Class="DesignPatternsTester.Views.ObserverPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DesignPatternsTester.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="278*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Publisher"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Margin="14,5,121,49" Width="65" Grid.RowSpan="2"/>
+        <TextBox x:Name="NewPriceTextBox"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                 Margin="10,4,10,10" Text="Enter Latest Price"/>
+        <Button x:Name="UpdatePriceButton"
+                Content="Update Price"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="UpdatePriceButton_Click" Margin="10,46,0,22" Height="32" Width="105" HorizontalAlignment="Left" Grid.RowSpan="2" />
+        <TextBlock Text="Subscriber1"
+        	Grid.Row="3"
+        	Grid.Column="0"
+        	FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="87" Margin="12,31,101,3" Grid.RowSpan="2"/>
+        <TextBlock Text="Subscriber2"
+        	Grid.Row="3"
+        	Grid.Column="1"
+        	FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="87" Margin="57,31,56,3" Grid.RowSpan="2"/>
+        <ListBox x:Name="Subscriber1ListBox" HorizontalAlignment="Left" Height="288" Margin="10,1,0,0" 
+                 Grid.Row="5" VerticalAlignment="Top" Width="180" BorderThickness="1" Grid.RowSpan="3"/>
+
+        <Border BorderThickness="1" Grid.Row="5" Grid.Column="1" BorderBrush="Black" VerticalAlignment="Top"  HorizontalAlignment="Center"  Width="87" Margin="57,0,56,0" Height="22">
+            <TextBlock x:Name="Subscriber2TextBlock" TextWrapping="Wrap" Text="Latest Price" Margin="5,0,0,0"  />
+        </Border>
+    </Grid>
+</Page>
