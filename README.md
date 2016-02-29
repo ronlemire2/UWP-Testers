@@ -24,6 +24,11 @@
 7. SemanticZoom
 
 
+**DesignPatternsTester**
+
+1. Observer Pattern
+
+
 **DialogsTester**
 
 1. Confirmation
