@@ -15,6 +15,8 @@
 
 **CSharpTester**
 
+Instead of using Console apps for examples I used LinqPad which saves code as .linq files. To get the free Standard version of LinqPad go to http://www.linqpad.net/download.aspx.
+
 1. Delegates
 
 
