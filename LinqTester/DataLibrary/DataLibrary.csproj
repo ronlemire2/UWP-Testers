@@ -114,6 +114,49 @@
     <Compile Include="AdventureWorks2012\StateProvince.cs">
       <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderIT\Company.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\Customer.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\Order.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\OrderDetail.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\OrderITModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderITModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\OrderITModel.cs" />
+    <Compile Include="OrderIT\OrderITModel.Designer.cs">
+      <DependentUpon>OrderITModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\OrderITModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\OrderITModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderITModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\Product.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\Shirt.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\Shoe.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderIT\Supplier.cs">
+      <DependentUpon>OrderITModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rattz\Employee.cs">
       <DependentUpon>RattzModel.tt</DependentUpon>
@@ -153,6 +196,13 @@
     </None>
     <None Include="App.Config" />
     <None Include="OrderIT\OrderIT.bak" />
+    <EntityDeploy Include="OrderIT\OrderITModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OrderITModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="OrderIT\OrderITModel.edmx.diagram">
+      <DependentUpon>OrderITModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Rattz\Rattz.bak" />
     <None Include="Rattz\RattzModel.edmx.diagram">
@@ -169,6 +219,14 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AdventureWorks2012Model.edmx</DependentUpon>
       <LastGenOutput>AdventureWorks2012Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="OrderIT\OrderITModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OrderITModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OrderIT\OrderITModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OrderITModel1.cs</LastGenOutput>
     </Content>
     <Content Include="Rattz\RattzModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

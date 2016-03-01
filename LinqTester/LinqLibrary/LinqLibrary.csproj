@@ -42,10 +42,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="AdventureWorks\" />
-    <Folder Include="OrderIT\" />
-    <Folder Include="Rattz\" />
+    <None Include="AdventureWorks\AdventureWorks2012.linq" />
+    <None Include="OrderIT\OrderIT.linq" />
+    <None Include="Rattz\Rattz.linq" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
