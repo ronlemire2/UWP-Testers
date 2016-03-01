@@ -45,6 +45,8 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="AdventureWorks\AdventureWorks2012.linq" />
+    <None Include="DynamicExpressions\ExpressionTrees1.linq" />
+    <None Include="DynamicExpressions\ExpressionTrees2.linq" />
     <None Include="DynamicExpressions\PredicateBuilder.linq" />
     <None Include="OrderIT\OrderIT.linq" />
     <None Include="Rattz\Rattz.linq" />
