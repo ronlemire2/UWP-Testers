@@ -62,6 +62,7 @@ Instead of using Console apps for examples I used LinqPad which saves code as .l
 Files with extension .linq in the LinqLibrary were created with LinqPad. Some of the LinqPad queries depend on ADO.NET Data Models which are located in the DataLibrary. To get the free Standard version of LinqPad go to http://www.linqpad.net/download.aspx.
 
 1. Rattz - examples from the book Pro LINQ by Joe Rattz
+2. OrderIT - examples from the book Entity Framework 4 In Action by Stefano Mostarda. Includes class inheritance.
 
 **MemoryGame** 
 
