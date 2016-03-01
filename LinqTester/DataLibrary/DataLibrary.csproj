@@ -51,6 +51,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdventureWorks2012\Address.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\AddressType.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\AdventureWorks2012Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2012Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\AdventureWorks2012Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\AdventureWorks2012Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2012Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\BusinessEntity.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\BusinessEntityAddress.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\BusinessEntityContact.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\ContactType.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\CountryRegion.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\Department.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\EmailAddress.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\Employee.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\Password.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\Person.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\PersonFilter.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\PersonPhone.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\PhoneNumberType.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2012\StateProvince.cs">
+      <DependentUpon>AdventureWorks2012Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="OrderIT\Audit.cs">
       <DependentUpon>OrderITModel.tt</DependentUpon>
     </Compile>
@@ -123,6 +186,13 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="AdventureWorks2012\AdventureWorks2012Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdventureWorks2012Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AdventureWorks2012\AdventureWorks2012Model.edmx.diagram">
+      <DependentUpon>AdventureWorks2012Model.edmx</DependentUpon>
+    </None>
     <None Include="App.Config" />
     <None Include="OrderIT\OrderIT.bak" />
     <EntityDeploy Include="OrderIT\OrderITModel.edmx">
@@ -139,6 +209,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdventureWorks2012\AdventureWorks2012Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorks2012Model.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorks2012Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdventureWorks2012\AdventureWorks2012Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorks2012Model.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorks2012Model.cs</LastGenOutput>
+    </Content>
     <Content Include="OrderIT\OrderITModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OrderITModel.edmx</DependentUpon>
@@ -163,6 +243,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
