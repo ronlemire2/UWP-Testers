@@ -57,6 +57,12 @@ Instead of using Console apps for examples I used LinqPad which saves code as .l
 8. AdaptiveTrigger
 
 
+**LinqTester**
+
+Files with extension .linq in the LinqLibrary were created with LinqPad. Some of the LinqPad queries depend on ADO.NET Data Models which are located in the DataLibrary. To get the free Standard version of LinqPad go to http://www.linqpad.net/download.aspx.
+
+1. Rattz - examples from the book Pro LINQ by Joe Rattz
+
 **MemoryGame** 
 
 A fairly complex Microsoft Blend tutorial. Originally created for Visual Studio 2013. Converted to a Visual Studio 2015 Universal Windows App. Sample code not available anymore. Tutorial steps are located at: https://msdn.microsoft.com/en-us/library/windows/apps/jj129462(v=vs.110).aspx.
