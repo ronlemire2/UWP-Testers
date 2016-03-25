@@ -19,7 +19,7 @@ namespace AsyncTester.Services {
 
             for (int i = 0; i < count; i++) {
                 vm = new SimplePersonViewModel();
-                vm.FirstName = await nameGenerator.GenerateNameAsync(sex);
+                vm.FirstName = await nameGenerator.GenerateFirstNameAsync(sex);
                 vm.LastName = await nameGenerator.GenerateLastNameAsync();
                 vm.FullName = string.Format("{0} {1}", vm.FirstName, vm.LastName);
                 simplePersonVMs.Add(vm);

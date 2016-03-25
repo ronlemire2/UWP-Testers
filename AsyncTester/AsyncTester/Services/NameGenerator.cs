@@ -19,7 +19,7 @@ namespace AsyncTester.Services {
 
         #region Async Methods
 
-        public async Task<string> GenerateNameAsync(Sex sex) {
+        public async Task<string> GenerateFirstNameAsync(Sex sex) {
             string firstName = string.Empty;
 
             await Task.Factory.StartNew(() => {
@@ -65,7 +65,7 @@ namespace AsyncTester.Services {
 
         #region Non Async methods
 
-        public string GenerateName(Sex sex) {
+        public string GenerateFirstName(Sex sex) {
             string firstName = string.Empty;
 
             if (sex == Sex.Male) {
