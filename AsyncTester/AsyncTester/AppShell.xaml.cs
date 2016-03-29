@@ -68,6 +68,13 @@ namespace AsyncTester {
                     DestPage = typeof(LongRunningTaskPage),
                     PageToken = "LongRunningTask"
                 },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.Contact,
+                    Label = "CalcFactorial",
+                    DestPage = typeof(CalcFactorialPage),
+                    PageToken = "CalcFactorial"
+                },
             });
 
         public static AppShell Current = null;

@@ -135,6 +135,7 @@
     <Compile Include="Services\PlanetRepository.cs" />
     <Compile Include="Services\SexEnum.cs" />
     <Compile Include="Services\SimplePersonRepository.cs" />
+    <Compile Include="ViewModels\CalcFactorialPageViewModel.cs" />
     <Compile Include="ViewModels\DataOperationsViewModelBase.cs" />
     <Compile Include="ViewModels\LandingPageViewModel.cs" />
     <Compile Include="ViewModels\LocalDataPageViewModel.cs" />
@@ -144,6 +145,9 @@
     <Compile Include="ViewModels\ProgressAndCancelPageViewModel.cs" />
     <Compile Include="ViewModels\ProjectDataPageViewModel.cs" />
     <Compile Include="ViewModels\SimplePersonViewModel.cs" />
+    <Compile Include="Views\CalcFactorialPage.xaml.cs">
+      <DependentUpon>CalcFactorialPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DataOperationsUC.xaml.cs">
       <DependentUpon>DataOperationsUC.xaml</DependentUpon>
     </Compile>
@@ -220,6 +224,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\PageHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CalcFactorialPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
