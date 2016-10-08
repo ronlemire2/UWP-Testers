@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace TemplateTester {
+    // ron was here 10/8/2016
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
