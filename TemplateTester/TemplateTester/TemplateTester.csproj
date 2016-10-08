@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{200FA2F8-5483-487D-8B8C-B6470999845E}</ProjectGuid>
+    <ProjectGuid>{A3F9403B-99E5-4BFC-B94C-DC9A73C0399E}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UWPShellTemplate</RootNamespace>
-    <AssemblyName>UWPShellTemplate</AssemblyName>
+    <RootNamespace>TemplateTester</RootNamespace>
+    <AssemblyName>TemplateTester</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
